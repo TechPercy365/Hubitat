@@ -36,7 +36,7 @@
             this.pic_Logout = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pic_Apartment = new System.Windows.Forms.PictureBox();
+            this.pic_Payment = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_Profile = new System.Windows.Forms.Label();
             this.pic_Profile = new System.Windows.Forms.PictureBox();
@@ -49,14 +49,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.x_Exit = new System.Windows.Forms.Label();
-            this.btn_manPayments = new System.Windows.Forms.Button();
+            this.btn_manApartments = new System.Windows.Forms.Button();
             this.btn_manUsers = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Apartment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Payment)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Profile)).BeginInit();
             this.panel4.SuspendLayout();
@@ -127,7 +127,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.pic_Apartment);
+            this.panel6.Controls.Add(this.pic_Payment);
             this.panel6.Location = new System.Drawing.Point(0, 231);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(76, 79);
@@ -137,22 +137,22 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1, 62);
+            this.label3.Location = new System.Drawing.Point(7, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 14);
+            this.label3.Size = new System.Drawing.Size(65, 14);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Apartments";
+            this.label3.Text = "Payments";
             // 
-            // pic_Apartment
+            // pic_Payment
             // 
-            this.pic_Apartment.ErrorImage = null;
-            this.pic_Apartment.Image = ((System.Drawing.Image)(resources.GetObject("pic_Apartment.Image")));
-            this.pic_Apartment.Location = new System.Drawing.Point(9, 6);
-            this.pic_Apartment.Name = "pic_Apartment";
-            this.pic_Apartment.Size = new System.Drawing.Size(58, 57);
-            this.pic_Apartment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Apartment.TabIndex = 0;
-            this.pic_Apartment.TabStop = false;
+            this.pic_Payment.ErrorImage = null;
+            this.pic_Payment.Image = ((System.Drawing.Image)(resources.GetObject("pic_Payment.Image")));
+            this.pic_Payment.Location = new System.Drawing.Point(9, 6);
+            this.pic_Payment.Name = "pic_Payment";
+            this.pic_Payment.Size = new System.Drawing.Size(58, 57);
+            this.pic_Payment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Payment.TabIndex = 0;
+            this.pic_Payment.TabStop = false;
             // 
             // panel5
             // 
@@ -276,18 +276,18 @@
             this.x_Exit.TabIndex = 0;
             this.x_Exit.Text = "X";
             // 
-            // btn_manPayments
+            // btn_manApartments
             // 
-            this.btn_manPayments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.btn_manPayments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_manPayments.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_manPayments.ForeColor = System.Drawing.Color.Black;
-            this.btn_manPayments.Location = new System.Drawing.Point(133, 271);
-            this.btn_manPayments.Name = "btn_manPayments";
-            this.btn_manPayments.Size = new System.Drawing.Size(195, 61);
-            this.btn_manPayments.TabIndex = 8;
-            this.btn_manPayments.Text = "Manage Payments";
-            this.btn_manPayments.UseVisualStyleBackColor = false;
+            this.btn_manApartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.btn_manApartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_manApartments.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_manApartments.ForeColor = System.Drawing.Color.Black;
+            this.btn_manApartments.Location = new System.Drawing.Point(133, 271);
+            this.btn_manApartments.Name = "btn_manApartments";
+            this.btn_manApartments.Size = new System.Drawing.Size(195, 61);
+            this.btn_manApartments.TabIndex = 8;
+            this.btn_manApartments.Text = "Manage Apartments";
+            this.btn_manApartments.UseVisualStyleBackColor = false;
             // 
             // btn_manUsers
             // 
@@ -321,7 +321,7 @@
             this.ClientSize = new System.Drawing.Size(752, 421);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_manUsers);
-            this.Controls.Add(this.btn_manPayments);
+            this.Controls.Add(this.btn_manApartments);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -334,7 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Apartment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Payment)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Profile)).EndInit();
@@ -361,7 +361,7 @@
         private System.Windows.Forms.PictureBox pic_Logout;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pic_Apartment;
+        private System.Windows.Forms.PictureBox pic_Payment;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label btn_Profile;
         private System.Windows.Forms.PictureBox pic_Profile;
@@ -374,7 +374,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label x_Exit;
-        private System.Windows.Forms.Button btn_manPayments;
+        private System.Windows.Forms.Button btn_manApartments;
         private System.Windows.Forms.Button btn_manUsers;
         private System.Windows.Forms.PictureBox pictureBox7;
     }

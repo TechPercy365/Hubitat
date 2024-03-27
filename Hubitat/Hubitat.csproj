@@ -67,17 +67,17 @@
     <Compile Include="Forms\Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_L_Apartments.cs">
+    <Compile Include="Forms\Frm_L_ManageApartments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_L_Apartments.Designer.cs">
-      <DependentUpon>Frm_L_Apartments.cs</DependentUpon>
+    <Compile Include="Forms\Frm_L_ManageApartments.Designer.cs">
+      <DependentUpon>Frm_L_ManageApartments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_L_ManageTenants.cs">
+    <Compile Include="Forms\Frm_L_ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_L_ManageTenants.Designer.cs">
-      <DependentUpon>Frm_L_ManageTenants.cs</DependentUpon>
+    <Compile Include="Forms\Frm_L_ManageUsers.Designer.cs">
+      <DependentUpon>Frm_L_ManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Registration.cs">
       <SubType>Form</SubType>
@@ -141,11 +141,11 @@
     <EmbeddedResource Include="Forms\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_L_Apartments.resx">
-      <DependentUpon>Frm_L_Apartments.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_L_ManageApartments.resx">
+      <DependentUpon>Frm_L_ManageApartments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_L_ManageTenants.resx">
-      <DependentUpon>Frm_L_ManageTenants.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_L_ManageUsers.resx">
+      <DependentUpon>Frm_L_ManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Registration.resx">
       <DependentUpon>Frm_Registration.cs</DependentUpon>

@@ -68,7 +68,9 @@ CREATE TABLE [Payment] (
 
 
 
--- VIEW METHODS
+---<<<<<<<<<<<   VIEW METHODS   >>>>>>>>>>>>---
+
+------------ FOR LANDLORDS -------------
 CREATE VIEW vw_AllUsers AS
 SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
 COALESCE(ten.tenantID, ln.landlordID) as 'Role ID', COALESCE(ten.firstName, ln.firstName) as 'First Name',
@@ -92,16 +94,22 @@ us.userDateCreatedAt as 'Date Account Created', us.userID as 'User ID'
 FROM [Landlords] lan
 JOIN [Users] us ON us.userID = lan.landlordID
 
---CREATE VIEW vw_Users
-
---CREATE VIEW vw_Apartment
-
+-- CREATE VIEW vw_rentApartment *apmt ID and apmtStatus only*
 
 --CREATE VIEW vw_PaymentHistory
 
 --CREATE VIEW vw_UserDueRent
 
+
+------------ FOR TENANTS ---------------
 --CREATE VIEW vw_UserPaymentHistory
+
+--CREATE VIEW vw_Users
+
+--CREATE VIEW vw_Apartments
+
+
+
 
 --DROP DATABASE db_Hubitat
 
