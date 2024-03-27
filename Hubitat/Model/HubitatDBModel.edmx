@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_HubitatModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Apartments">
+          <Key>
+            <PropertyRef Name="apmtID" />
+          </Key>
+          <Property Name="apmtID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="apmtDescription" Type="varchar" MaxLength="500" />
+          <Property Name="apmtPrice" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="apmtType" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apmtStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="apmtImg" Type="varchar" MaxLength="500" />
+          <Property Name="landlordID" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Landlords">
+          <Key>
+            <PropertyRef Name="landlordID" />
+          </Key>
+          <Property Name="landlordID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneNum" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="rentID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="payMethod" Type="varchar" MaxLength="15" />
+          <Property Name="payAmount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="payTotalPay" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="payChange" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="payDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="rentID" />
+          </Key>
+          <Property Name="rentID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="tenantID" Type="varchar" MaxLength="7" />
+          <Property Name="apmtID" Type="varchar" MaxLength="7" />
+          <Property Name="CheckInDate" Type="date" />
+          <Property Name="CheckOutDate" Type="date" />
+          <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Tenants">
+          <Key>
+            <PropertyRef Name="tenantID" />
+          </Key>
+          <Property Name="tenantID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneNum" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPass" Type="varbinary" MaxLength="255" Nullable="false" />
+          <Property Name="userType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="userDateCreatedAt" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Apartment__landl__5165187F">
+          <End Role="Landlords" Type="Self.Landlords" Multiplicity="1" />
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Landlords">
+              <PropertyRef Name="landlordID" />
+            </Principal>
+            <Dependent Role="Apartments">
+              <PropertyRef Name="landlordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Landlords__userI__4E88ABD4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Landlords" Type="Self.Landlords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Landlords">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__rentID__5812160E">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="rentID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="rentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__apmtID__5535A963">
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="0..1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apartments">
+              <PropertyRef Name="apmtID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="apmtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__tenantID__5441852A">
+          <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenants">
+              <PropertyRef Name="tenantID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="tenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tenants__userID__4BAC3F29">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Tenants" Type="Self.Tenants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Tenants">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_HubitatModelStoreContainer">
+          <EntitySet Name="Apartments" EntityType="Self.Apartments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Landlords" EntityType="Self.Landlords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tenants" EntityType="Self.Tenants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Apartment__landl__5165187F" Association="Self.FK__Apartment__landl__5165187F">
+            <End Role="Landlords" EntitySet="Landlords" />
+            <End Role="Apartments" EntitySet="Apartments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Landlords__userI__4E88ABD4" Association="Self.FK__Landlords__userI__4E88ABD4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Landlords" EntitySet="Landlords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__rentID__5812160E" Association="Self.FK__Payment__rentID__5812160E">
+            <End Role="Rent" EntitySet="Rent" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__apmtID__5535A963" Association="Self.FK__Rent__apmtID__5535A963">
+            <End Role="Apartments" EntitySet="Apartments" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__tenantID__5441852A" Association="Self.FK__Rent__tenantID__5441852A">
+            <End Role="Tenants" EntitySet="Tenants" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tenants__userID__4BAC3F29" Association="Self.FK__Tenants__userID__4BAC3F29">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tenants" EntitySet="Tenants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_HubitatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Apartments">
+          <Key>
+            <PropertyRef Name="apmtID" />
+          </Key>
+          <Property Name="apmtID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apmtDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="apmtPrice" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="apmtType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apmtStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apmtImg" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="landlordID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Landlords" Relationship="Self.FK__Apartment__landl__5165187F" FromRole="Apartments" ToRole="Landlords" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK__Rent__apmtID__5535A963" FromRole="Apartments" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="Landlords">
+          <Key>
+            <PropertyRef Name="landlordID" />
+          </Key>
+          <Property Name="landlordID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Apartments" Relationship="Self.FK__Apartment__landl__5165187F" FromRole="Landlords" ToRole="Apartments" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Landlords__userI__4E88ABD4" FromRole="Landlords" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rentID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="payMethod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="payAmount" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="payTotalPay" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="payChange" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="payDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK__Payment__rentID__5812160E" FromRole="Payment" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="rentID" />
+          </Key>
+          <Property Name="rentID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tenantID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="apmtID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CheckInDate" Type="DateTime" Precision="0" />
+          <Property Name="CheckOutDate" Type="DateTime" Precision="0" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Apartments" Relationship="Self.FK__Rent__apmtID__5535A963" FromRole="Rent" ToRole="Apartments" />
+          <NavigationProperty Name="Payment" Relationship="Self.FK__Payment__rentID__5812160E" FromRole="Rent" ToRole="Payment" />
+          <NavigationProperty Name="Tenants" Relationship="Self.FK__Rent__tenantID__5441852A" FromRole="Rent" ToRole="Tenants" />
+        </EntityType>
+        <EntityType Name="Tenants">
+          <Key>
+            <PropertyRef Name="tenantID" />
+          </Key>
+          <Property Name="tenantID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK__Rent__tenantID__5441852A" FromRole="Tenants" ToRole="Rent" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Tenants__userID__4BAC3F29" FromRole="Tenants" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPass" Type="Binary" MaxLength="255" FixedLength="false" Nullable="false" />
+          <Property Name="userType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userDateCreatedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Landlords" Relationship="Self.FK__Landlords__userI__4E88ABD4" FromRole="Users" ToRole="Landlords" />
+          <NavigationProperty Name="Tenants" Relationship="Self.FK__Tenants__userID__4BAC3F29" FromRole="Users" ToRole="Tenants" />
+        </EntityType>
+        <Association Name="FK__Apartment__landl__5165187F">
+          <End Role="Landlords" Type="Self.Landlords" Multiplicity="1" />
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Landlords">
+              <PropertyRef Name="landlordID" />
+            </Principal>
+            <Dependent Role="Apartments">
+              <PropertyRef Name="landlordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__apmtID__5535A963">
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="0..1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apartments">
+              <PropertyRef Name="apmtID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="apmtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Landlords__userI__4E88ABD4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Landlords" Type="Self.Landlords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Landlords">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__rentID__5812160E">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="rentID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="rentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__tenantID__5441852A">
+          <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenants">
+              <PropertyRef Name="tenantID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="tenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tenants__userID__4BAC3F29">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Tenants" Type="Self.Tenants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Tenants">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_HubitatEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apartments" EntityType="Self.Apartments" />
+          <EntitySet Name="Landlords" EntityType="Self.Landlords" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" />
+          <EntitySet Name="Tenants" EntityType="Self.Tenants" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Apartment__landl__5165187F" Association="Self.FK__Apartment__landl__5165187F">
+            <End Role="Landlords" EntitySet="Landlords" />
+            <End Role="Apartments" EntitySet="Apartments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__apmtID__5535A963" Association="Self.FK__Rent__apmtID__5535A963">
+            <End Role="Apartments" EntitySet="Apartments" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Landlords__userI__4E88ABD4" Association="Self.FK__Landlords__userI__4E88ABD4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Landlords" EntitySet="Landlords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__rentID__5812160E" Association="Self.FK__Payment__rentID__5812160E">
+            <End Role="Rent" EntitySet="Rent" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__tenantID__5441852A" Association="Self.FK__Rent__tenantID__5441852A">
+            <End Role="Tenants" EntitySet="Tenants" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tenants__userID__4BAC3F29" Association="Self.FK__Tenants__userID__4BAC3F29">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tenants" EntitySet="Tenants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_HubitatModelStoreContainer" CdmEntityContainer="db_HubitatEntities">
+          <EntitySetMapping Name="Apartments">
+            <EntityTypeMapping TypeName="db_HubitatModel.Apartments">
+              <MappingFragment StoreEntitySet="Apartments">
+                <ScalarProperty Name="apmtID" ColumnName="apmtID" />
+                <ScalarProperty Name="apmtDescription" ColumnName="apmtDescription" />
+                <ScalarProperty Name="apmtPrice" ColumnName="apmtPrice" />
+                <ScalarProperty Name="apmtType" ColumnName="apmtType" />
+                <ScalarProperty Name="apmtStatus" ColumnName="apmtStatus" />
+                <ScalarProperty Name="apmtImg" ColumnName="apmtImg" />
+                <ScalarProperty Name="landlordID" ColumnName="landlordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Landlords">
+            <EntityTypeMapping TypeName="db_HubitatModel.Landlords">
+              <MappingFragment StoreEntitySet="Landlords">
+                <ScalarProperty Name="landlordID" ColumnName="landlordID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNum" ColumnName="phoneNum" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment">
+            <EntityTypeMapping TypeName="db_HubitatModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+                <ScalarProperty Name="rentID" ColumnName="rentID" />
+                <ScalarProperty Name="payMethod" ColumnName="payMethod" />
+                <ScalarProperty Name="payAmount" ColumnName="payAmount" />
+                <ScalarProperty Name="payTotalPay" ColumnName="payTotalPay" />
+                <ScalarProperty Name="payChange" ColumnName="payChange" />
+                <ScalarProperty Name="payDate" ColumnName="payDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent">
+            <EntityTypeMapping TypeName="db_HubitatModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="rentID" ColumnName="rentID" />
+                <ScalarProperty Name="tenantID" ColumnName="tenantID" />
+                <ScalarProperty Name="apmtID" ColumnName="apmtID" />
+                <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+                <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tenants">
+            <EntityTypeMapping TypeName="db_HubitatModel.Tenants">
+              <MappingFragment StoreEntitySet="Tenants">
+                <ScalarProperty Name="tenantID" ColumnName="tenantID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNum" ColumnName="phoneNum" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="db_HubitatModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPass" ColumnName="userPass" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="userDateCreatedAt" ColumnName="userDateCreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
