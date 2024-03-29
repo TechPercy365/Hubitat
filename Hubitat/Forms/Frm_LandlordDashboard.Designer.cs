@@ -275,11 +275,12 @@
             this.x_Exit.Size = new System.Drawing.Size(21, 22);
             this.x_Exit.TabIndex = 0;
             this.x_Exit.Text = "X";
+            this.x_Exit.Click += new System.EventHandler(this.x_Exit_Click);
             // 
             // btn_manApartments
             // 
             this.btn_manApartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.btn_manApartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_manApartments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_manApartments.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manApartments.ForeColor = System.Drawing.Color.Black;
             this.btn_manApartments.Location = new System.Drawing.Point(133, 271);
@@ -288,11 +289,12 @@
             this.btn_manApartments.TabIndex = 8;
             this.btn_manApartments.Text = "Manage Apartments";
             this.btn_manApartments.UseVisualStyleBackColor = false;
+            this.btn_manApartments.Click += new System.EventHandler(this.btn_manApartments_Click);
             // 
             // btn_manUsers
             // 
             this.btn_manUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.btn_manUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_manUsers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_manUsers.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manUsers.ForeColor = System.Drawing.Color.Black;
             this.btn_manUsers.Location = new System.Drawing.Point(133, 182);
@@ -301,6 +303,7 @@
             this.btn_manUsers.TabIndex = 8;
             this.btn_manUsers.Text = "Manage Users";
             this.btn_manUsers.UseVisualStyleBackColor = false;
+            this.btn_manUsers.Click += new System.EventHandler(this.btn_manUsers_Click);
             // 
             // pictureBox7
             // 

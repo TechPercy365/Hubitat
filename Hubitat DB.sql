@@ -3,8 +3,8 @@ USE db_Hubitat
 USE activity1
 
 DROP DATABASE db_Hubitat
-DROP TABLE [Landlords]
-DROP TABLE [Users]
+
+DROP TABLE [UserInfo]
 
 CREATE TABLE [Users] (
 	userID varchar(7) PRIMARY KEY NOT NULL,
@@ -13,24 +13,13 @@ CREATE TABLE [Users] (
 	userType varchar(10) NOT NULL
 )
 
-CREATE TABLE [Tenants] (
-	tenantID varChar(7) PRIMARY KEY,
+CREATE TABLE [UserInfo] (
+	userID varchar(7) PRIMARY KEY,
 	firstName varchar(100),
 	lastName varchar(100), 
 	email varchar(50),
 	phoneNum varchar(15),
-	userID varchar(7),	
 	FOREIGN KEY (userID) REFERENCES [Users](userID)	
-)
-
-CREATE TABLE [Landlords] (
-	landlordID varchar(7) PRIMARY KEY,
-	firstName varchar(100),
-	lastName varchar(100),	 
-	email varchar(50),
-	phoneNum varchar(15),
-	userID varchar(7),	
-	FOREIGN KEY (userID) REFERENCES [Users](userID),
 )
 
 CREATE TABLE [Apartments] (
@@ -40,14 +29,14 @@ CREATE TABLE [Apartments] (
 	apmtType varchar(25) NOT NULL, -- Good for * persons
 	apmtStatus varchar(10) NOT NULL, -- Vacant, Occupied, Maintenance
 	apmtImg varchar(500),
-	landlordID varchar(7) NOT NULL,
-	FOREIGN KEY (landlordID) REFERENCES [Landlords](landlordID)
+	userID varchar(7) NOT NULL,
+	FOREIGN KEY (userID) REFERENCES [Users](userID)
 )
 
 CREATE TABLE [Rent] (
 	rentID varchar(7) PRIMARY KEY NOT NULL,
-	tenantID varchar(7),
-	FOREIGN KEY (tenantId) REFERENCES [Tenants](tenantID),
+	userID varchar(7),
+	FOREIGN KEY (userID) REFERENCES [UserInfo](userID),
 	apmtID varchar(7),
 	FOREIGN KEY (apmtID) REFERENCES [Apartments](apmtID),
 	CheckInDate DATE,
@@ -66,33 +55,43 @@ CREATE TABLE [Payment] (
 	payDate DATE NOT NULL --Date the tenant paid for their monthly rent
 )
 
-
+SELECT * FROM [Users] 
 
 ---<<<<<<<<<<<   VIEW METHODS   >>>>>>>>>>>>---
 
 ------------ FOR LANDLORDS -------------
 CREATE VIEW vw_AllUsers AS
 SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
-COALESCE(ten.tenantID, ln.landlordID) as 'Role ID', COALESCE(ten.firstName, ln.firstName) as 'First Name',
-COALESCE(ten.lastName, ln.lastName) as 'Last Name', COALESCE(ten.email, ln.email) as 'Email',
-COALESCE(ten.phoneNum, ln.phoneNum) as 'Phone Number'
+ui.firstName as 'First Name', ui.lastName as 'Last Name', 
+ui.email as 'Email', ui.phoneNum as 'Phone Number'
 FROM [Users] us
-LEFT JOIN [Tenants] ten ON us.userID = ten.tenantID
-LEFT JOIN [Landlords] ln ON us.userID = ln.landlordID
+JOIN [UserInfo] ui ON us.userID = ui.userID
+
 
 CREATE VIEW vw_Tenants AS
-SELECT ten.tenantID as 'Tenant ID', ten.firstName as 'First Name', ten.lastName as 'Last Name', 
-us.userName as 'Username', us.userType as 'Role', ten.phoneNum as 'Phone Number', ten.email as 'Email',
-us.userDateCreatedAt as 'Date Account Created', us.userID as 'User ID'
-FROM [Tenants] ten
-JOIN [Users] us ON us.userID = ten.tenantID
+SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
+ui.firstName as 'First Name', ui.lastName as 'Last Name', 
+ui.email as 'Email', ui.phoneNum as 'Phone Number'
+FROM [Users] us 
+JOIN [UserInfo] ui ON us.userID = ui.userID 
+WHERE us.userType = 'TENANT'
 
 CREATE VIEW vw_Landlords AS
-SELECT lan.landlordID as 'Landlord ID', lan.firstName as 'First Name', lan.lastName as 'Last Name', 
-us.userName as 'Username', lan.phoneNum as 'Phone Number', lan.email as 'Email',
-us.userDateCreatedAt as 'Date Account Created', us.userID as 'User ID'
-FROM [Landlords] lan
-JOIN [Users] us ON us.userID = lan.landlordID
+SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
+ui.firstName as 'First Name', ui.lastName as 'Last Name', 
+ui.email as 'Email', ui.phoneNum as 'Phone Number'
+FROM [Users] us 
+JOIN [UserInfo] ui ON us.userID = ui.userID
+WHERE us.userType = 'LANDLORD'
+
+CREATE VIEW vw_SpecificUser 
+AS
+SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
+ui.firstName as 'First Name', ui.lastName as 'Last Name', 
+ui.email as 'Email', ui.phoneNum as 'Phone Number'
+FROM [Users] us
+JOIN [UserInfo] ui ON us.userID = ui.userID
+WHERE us.userID = 'specific_user_id' OR us.userName = 'specific_username'
 
 -- CREATE VIEW vw_rentApartment *apmt ID and apmtStatus only*
 

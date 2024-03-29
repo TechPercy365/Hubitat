@@ -4,19 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d2e5f325ac284a6186e6e9a7e11a2cb6" Name="Diagram1">
-        <EntityTypeShape EntityType="db_HubitatModel.Apartments" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_HubitatModel.Landlords" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_HubitatModel.Payment" Width="1.5" PointX="9.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_HubitatModel.Rent" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_HubitatModel.Tenants" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_HubitatModel.Users" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <AssociationConnector Association="db_HubitatModel.FK__Apartment__landl__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="db_HubitatModel.FK__Rent__apmtID__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="db_HubitatModel.FK__Landlords__userI__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="db_HubitatModel.FK__Payment__rentID__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="db_HubitatModel.FK__Rent__tenantID__5441852A" ManuallyRouted="false" />
-        <AssociationConnector Association="db_HubitatModel.FK__Tenants__userID__4BAC3F29" ManuallyRouted="false" />
+      <Diagram DiagramId="d2e5f325ac284a6186e6e9a7e11a2cb6" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="db_HubitatModel.Apartments" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="db_HubitatModel.Payment" Width="1.5" PointX="7.5" PointY="2.75" />
+        <EntityTypeShape EntityType="db_HubitatModel.Rent" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="db_HubitatModel.UserInfo" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="db_HubitatModel.Users" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="db_HubitatModel.vw_AllUsers" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="db_HubitatModel.vw_Landlords" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="db_HubitatModel.vw_SpecificUser" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="db_HubitatModel.vw_Tenants" Width="1.5" PointX="7.75" PointY="6.75" />
+        <AssociationConnector Association="db_HubitatModel.FK__Apartment__userI__5535A963" />
+        <AssociationConnector Association="db_HubitatModel.FK__Rent__apmtID__59063A47" />
+        <AssociationConnector Association="db_HubitatModel.FK__Payment__rentID__5BE2A6F2" />
+        <AssociationConnector Association="db_HubitatModel.FK__Rent__userID__5812160E" />
+        <AssociationConnector Association="db_HubitatModel.FK__UserInfo__userID__52593CB8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

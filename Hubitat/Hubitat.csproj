@@ -115,23 +115,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HubitatDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Landlords.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Payment.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Rent.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Tenants.cs">
+    <Compile Include="Model\UserInfo.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Users.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\vw_AllUsers.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_Landlords.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_SpecificUser.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_Tenants.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApartmentRepository.cs" />
     <Compile Include="Repositories\Error.cs" />
     <Compile Include="Repositories\UserLogged.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -164,6 +174,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Model\HubitatDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -186,10 +197,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Images\icon_showpass.png" />
+    <None Include="Images\icon_hidePass.png" />
     <Content Include="Model\HubitatDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HubitatDBModel.Context.cs</LastGenOutput>

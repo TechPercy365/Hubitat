@@ -26,10 +26,13 @@ namespace Hubitat.Model
         }
     
         public virtual DbSet<Apartments> Apartments { get; set; }
-        public virtual DbSet<Landlords> Landlords { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<Rent> Rent { get; set; }
-        public virtual DbSet<Tenants> Tenants { get; set; }
+        public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<vw_AllUsers> vw_AllUsers { get; set; }
+        public virtual DbSet<vw_Landlords> vw_Landlords { get; set; }
+        public virtual DbSet<vw_SpecificUser> vw_SpecificUser { get; set; }
+        public virtual DbSet<vw_Tenants> vw_Tenants { get; set; }
     }
 }

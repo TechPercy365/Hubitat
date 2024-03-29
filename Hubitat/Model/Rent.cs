@@ -21,7 +21,7 @@ namespace Hubitat.Model
         }
     
         public string rentID { get; set; }
-        public string tenantID { get; set; }
+        public string userID { get; set; }
         public string apmtID { get; set; }
         public Nullable<System.DateTime> CheckInDate { get; set; }
         public Nullable<System.DateTime> CheckOutDate { get; set; }
@@ -30,6 +30,6 @@ namespace Hubitat.Model
         public virtual Apartments Apartments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payment { get; set; }
-        public virtual Tenants Tenants { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

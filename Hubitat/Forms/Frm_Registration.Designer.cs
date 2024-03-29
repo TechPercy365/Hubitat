@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Registration));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.x_Exit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.img_showPass2 = new System.Windows.Forms.PictureBox();
+            this.img_ShowPassword1 = new System.Windows.Forms.PictureBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Register = new System.Windows.Forms.Button();
             this.cmb_Role = new System.Windows.Forms.ComboBox();
@@ -57,12 +60,16 @@
             this.pic_Back = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_showPass2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Back)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -107,10 +114,13 @@
             this.x_Exit.Size = new System.Drawing.Size(21, 22);
             this.x_Exit.TabIndex = 0;
             this.x_Exit.Text = "X";
+            this.x_Exit.Click += new System.EventHandler(this.x_Exit_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.img_showPass2);
+            this.panel2.Controls.Add(this.img_ShowPassword1);
             this.panel2.Controls.Add(this.btn_Clear);
             this.panel2.Controls.Add(this.btn_Register);
             this.panel2.Controls.Add(this.cmb_Role);
@@ -138,6 +148,28 @@
             this.panel2.Size = new System.Drawing.Size(545, 325);
             this.panel2.TabIndex = 2;
             // 
+            // img_showPass2
+            // 
+            this.img_showPass2.Image = ((System.Drawing.Image)(resources.GetObject("img_showPass2.Image")));
+            this.img_showPass2.Location = new System.Drawing.Point(354, 237);
+            this.img_showPass2.Name = "img_showPass2";
+            this.img_showPass2.Size = new System.Drawing.Size(31, 22);
+            this.img_showPass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_showPass2.TabIndex = 8;
+            this.img_showPass2.TabStop = false;
+            this.img_showPass2.Click += new System.EventHandler(this.img_showPass2_Click);
+            // 
+            // img_ShowPassword1
+            // 
+            this.img_ShowPassword1.Image = ((System.Drawing.Image)(resources.GetObject("img_ShowPassword1.Image")));
+            this.img_ShowPassword1.Location = new System.Drawing.Point(354, 190);
+            this.img_ShowPassword1.Name = "img_ShowPassword1";
+            this.img_ShowPassword1.Size = new System.Drawing.Size(31, 22);
+            this.img_ShowPassword1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_ShowPassword1.TabIndex = 8;
+            this.img_ShowPassword1.TabStop = false;
+            this.img_ShowPassword1.Click += new System.EventHandler(this.img_ShowPassword1_Click);
+            // 
             // btn_Clear
             // 
             this.btn_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
@@ -150,6 +182,7 @@
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Register
             // 
@@ -163,18 +196,19 @@
             this.btn_Register.TabIndex = 7;
             this.btn_Register.Text = "Sign-Up";
             this.btn_Register.UseVisualStyleBackColor = false;
+            this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
             // cmb_Role
             // 
             this.cmb_Role.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Role.FormattingEnabled = true;
             this.cmb_Role.Items.AddRange(new object[] {
-            "Tenant",
-            "LandLord"});
+            "TENANT",
+            "LANDLORD"});
             this.cmb_Role.Location = new System.Drawing.Point(16, 237);
             this.cmb_Role.Name = "cmb_Role";
             this.cmb_Role.Size = new System.Drawing.Size(149, 24);
-            this.cmb_Role.TabIndex = 6;
+            this.cmb_Role.TabIndex = 4;
             // 
             // txt_ConfirmPass
             // 
@@ -182,7 +216,8 @@
             this.txt_ConfirmPass.Location = new System.Drawing.Point(199, 237);
             this.txt_ConfirmPass.Name = "txt_ConfirmPass";
             this.txt_ConfirmPass.Size = new System.Drawing.Size(149, 22);
-            this.txt_ConfirmPass.TabIndex = 5;
+            this.txt_ConfirmPass.TabIndex = 7;
+            this.txt_ConfirmPass.UseSystemPasswordChar = true;
             // 
             // txt_Password
             // 
@@ -190,7 +225,8 @@
             this.txt_Password.Location = new System.Drawing.Point(199, 190);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(149, 22);
-            this.txt_Password.TabIndex = 5;
+            this.txt_Password.TabIndex = 7;
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // txt_PhoneNum
             // 
@@ -198,7 +234,7 @@
             this.txt_PhoneNum.Location = new System.Drawing.Point(199, 143);
             this.txt_PhoneNum.Name = "txt_PhoneNum";
             this.txt_PhoneNum.Size = new System.Drawing.Size(149, 22);
-            this.txt_PhoneNum.TabIndex = 5;
+            this.txt_PhoneNum.TabIndex = 6;
             // 
             // txt_Email
             // 
@@ -214,7 +250,7 @@
             this.txt_Uname.Location = new System.Drawing.Point(16, 190);
             this.txt_Uname.Name = "txt_Uname";
             this.txt_Uname.Size = new System.Drawing.Size(149, 22);
-            this.txt_Uname.TabIndex = 5;
+            this.txt_Uname.TabIndex = 3;
             // 
             // txt_Lname
             // 
@@ -222,7 +258,7 @@
             this.txt_Lname.Location = new System.Drawing.Point(16, 143);
             this.txt_Lname.Name = "txt_Lname";
             this.txt_Lname.Size = new System.Drawing.Size(149, 22);
-            this.txt_Lname.TabIndex = 5;
+            this.txt_Lname.TabIndex = 2;
             // 
             // txt_Fname
             // 
@@ -230,7 +266,7 @@
             this.txt_Fname.Location = new System.Drawing.Point(16, 92);
             this.txt_Fname.Name = "txt_Fname";
             this.txt_Fname.Size = new System.Drawing.Size(149, 22);
-            this.txt_Fname.TabIndex = 5;
+            this.txt_Fname.TabIndex = 1;
             // 
             // label11
             // 
@@ -351,6 +387,7 @@
             this.pic_Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Back.TabIndex = 1;
             this.pic_Back.TabStop = false;
+            this.pic_Back.Click += new System.EventHandler(this.pic_Back_Click);
             // 
             // panel3
             // 
@@ -373,6 +410,10 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // Frm_Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,9 +430,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_showPass2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Back)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +470,8 @@
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Register;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox img_showPass2;
+        private System.Windows.Forms.PictureBox img_ShowPassword1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

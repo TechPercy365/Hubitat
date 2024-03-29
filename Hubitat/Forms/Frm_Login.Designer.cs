@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Login));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -45,12 +46,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,6 +98,7 @@
             this.x_Exit.Size = new System.Drawing.Size(21, 22);
             this.x_Exit.TabIndex = 0;
             this.x_Exit.Text = "X";
+            this.x_Exit.Click += new System.EventHandler(this.x_Exit_Click);
             // 
             // panel2
             // 
@@ -123,6 +127,7 @@
             this.img_ShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.img_ShowPassword.TabIndex = 5;
             this.img_ShowPassword.TabStop = false;
+            this.img_ShowPassword.Click += new System.EventHandler(this.img_ShowPassword_Click);
             // 
             // btn_Login
             // 
@@ -136,6 +141,7 @@
             this.btn_Login.TabIndex = 4;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = false;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // txt_Password
             // 
@@ -152,7 +158,7 @@
             this.txt_Username.Location = new System.Drawing.Point(294, 103);
             this.txt_Username.Name = "txt_Username";
             this.txt_Username.Size = new System.Drawing.Size(185, 22);
-            this.txt_Username.TabIndex = 3;
+            this.txt_Username.TabIndex = 1;
             // 
             // label3
             // 
@@ -175,6 +181,7 @@
             this.btn_Register.Size = new System.Drawing.Size(66, 16);
             this.btn_Register.TabIndex = 2;
             this.btn_Register.Text = "Register";
+            this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
             // label4
             // 
@@ -230,6 +237,10 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,6 +283,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox img_ShowPassword;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

@@ -26,9 +26,9 @@ namespace Hubitat.Model
         public string apmtType { get; set; }
         public string apmtStatus { get; set; }
         public string apmtImg { get; set; }
-        public string landlordID { get; set; }
+        public string userID { get; set; }
     
-        public virtual Landlords Landlords { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rent> Rent { get; set; }
     }

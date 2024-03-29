@@ -16,5 +16,16 @@ namespace Hubitat.Forms
         {
             InitializeComponent();
         }
+
+        private void x_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_rentApmt_Click(object sender, EventArgs e)
+        {
+            new Frm_T_RentApartment().Show();
+            this.Hide();
+        }
     }
 }

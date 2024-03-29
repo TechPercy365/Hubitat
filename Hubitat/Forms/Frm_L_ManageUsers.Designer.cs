@@ -114,6 +114,7 @@
             this.x_Exit.Size = new System.Drawing.Size(21, 22);
             this.x_Exit.TabIndex = 0;
             this.x_Exit.Text = "X";
+            this.x_Exit.Click += new System.EventHandler(this.x_Exit_Click);
             // 
             // pictureBox1
             // 
@@ -149,6 +150,7 @@
             this.label_Home.Size = new System.Drawing.Size(60, 16);
             this.label_Home.TabIndex = 10;
             this.label_Home.Text = "Home /";
+            this.label_Home.Click += new System.EventHandler(this.label_Home_Click);
             // 
             // label2
             // 
@@ -165,7 +167,7 @@
             // btn_Back
             // 
             this.btn_Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Back.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Back.ForeColor = System.Drawing.Color.Black;
             this.btn_Back.Location = new System.Drawing.Point(7, 108);
@@ -174,6 +176,7 @@
             this.btn_Back.TabIndex = 11;
             this.btn_Back.Text = "< BACK";
             this.btn_Back.UseVisualStyleBackColor = false;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // panel2
             // 
@@ -211,7 +214,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(618, 232);
             this.button7.Name = "button7";
@@ -223,7 +226,7 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(618, 198);
             this.button6.Name = "button6";
@@ -235,7 +238,7 @@
             // btn_Add
             // 
             this.btn_Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Add.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.Location = new System.Drawing.Point(618, 166);
             this.btn_Add.Name = "btn_Add";
@@ -247,7 +250,7 @@
             // btn_sortLandlords
             // 
             this.btn_sortLandlords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_sortLandlords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sortLandlords.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sortLandlords.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sortLandlords.Location = new System.Drawing.Point(446, 8);
             this.btn_sortLandlords.Name = "btn_sortLandlords";
@@ -323,7 +326,7 @@
             // btn_sortTenants
             // 
             this.btn_sortTenants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_sortTenants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sortTenants.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sortTenants.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sortTenants.Location = new System.Drawing.Point(331, 8);
             this.btn_sortTenants.Name = "btn_sortTenants";
@@ -415,7 +418,7 @@
             // btn_sortAll
             // 
             this.btn_sortAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_sortAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sortAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sortAll.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sortAll.Location = new System.Drawing.Point(230, 8);
             this.btn_sortAll.Name = "btn_sortAll";
@@ -453,7 +456,7 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // Frm_L_ManageTenants
+            // Frm_L_ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -469,7 +472,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_L_ManageTenants";
+            this.Name = "Frm_L_ManageUsers";
             this.Text = "Frm_L_ManageTenants";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -17,19 +17,16 @@ namespace Hubitat.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.Landlords = new HashSet<Landlords>();
-            this.Tenants = new HashSet<Tenants>();
+            this.Apartments = new HashSet<Apartments>();
         }
     
         public string userID { get; set; }
         public string userName { get; set; }
         public byte[] userPass { get; set; }
         public string userType { get; set; }
-        public System.DateTime userDateCreatedAt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Landlords> Landlords { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tenants> Tenants { get; set; }
+        public virtual ICollection<Apartments> Apartments { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

@@ -39,7 +39,7 @@
             this.pic_Logout = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pic_ViewRent = new System.Windows.Forms.PictureBox();
+            this.pic_History = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pic_Profile = new System.Windows.Forms.PictureBox();
@@ -49,8 +49,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_rentApmt = new System.Windows.Forms.Button();
+            this.btn_payRent = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -58,7 +58,7 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_ViewRent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_History)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Profile)).BeginInit();
             this.panel4.SuspendLayout();
@@ -110,6 +110,7 @@
             this.x_Exit.Size = new System.Drawing.Size(21, 22);
             this.x_Exit.TabIndex = 0;
             this.x_Exit.Text = "X";
+            this.x_Exit.Click += new System.EventHandler(this.x_Exit_Click);
             // 
             // panel2
             // 
@@ -158,7 +159,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.pic_ViewRent);
+            this.panel6.Controls.Add(this.pic_History);
             this.panel6.Location = new System.Drawing.Point(0, 231);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(76, 79);
@@ -168,21 +169,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 62);
+            this.label3.Location = new System.Drawing.Point(15, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 14);
+            this.label3.Size = new System.Drawing.Size(49, 14);
             this.label3.TabIndex = 1;
-            this.label3.Text = "View Rent";
+            this.label3.Text = "History";
             // 
-            // pic_ViewRent
+            // pic_History
             // 
-            this.pic_ViewRent.Image = ((System.Drawing.Image)(resources.GetObject("pic_ViewRent.Image")));
-            this.pic_ViewRent.Location = new System.Drawing.Point(9, 6);
-            this.pic_ViewRent.Name = "pic_ViewRent";
-            this.pic_ViewRent.Size = new System.Drawing.Size(58, 57);
-            this.pic_ViewRent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_ViewRent.TabIndex = 0;
-            this.pic_ViewRent.TabStop = false;
+            this.pic_History.Image = ((System.Drawing.Image)(resources.GetObject("pic_History.Image")));
+            this.pic_History.Location = new System.Drawing.Point(12, 9);
+            this.pic_History.Name = "pic_History";
+            this.pic_History.Size = new System.Drawing.Size(50, 50);
+            this.pic_History.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_History.TabIndex = 0;
+            this.pic_History.TabStop = false;
             // 
             // panel5
             // 
@@ -274,31 +275,32 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Welcome, Tenant ";
             // 
-            // button2
+            // btn_rentApmt
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(133, 182);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 61);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Rent Apartment";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_rentApmt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.btn_rentApmt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_rentApmt.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rentApmt.ForeColor = System.Drawing.Color.Black;
+            this.btn_rentApmt.Location = new System.Drawing.Point(133, 182);
+            this.btn_rentApmt.Name = "btn_rentApmt";
+            this.btn_rentApmt.Size = new System.Drawing.Size(195, 61);
+            this.btn_rentApmt.TabIndex = 9;
+            this.btn_rentApmt.Text = "Rent Apartment";
+            this.btn_rentApmt.UseVisualStyleBackColor = false;
+            this.btn_rentApmt.Click += new System.EventHandler(this.btn_rentApmt_Click);
             // 
-            // button1
+            // btn_payRent
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(133, 271);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 61);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Payment History";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_payRent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.btn_payRent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_payRent.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_payRent.ForeColor = System.Drawing.Color.Black;
+            this.btn_payRent.Location = new System.Drawing.Point(133, 271);
+            this.btn_payRent.Name = "btn_payRent";
+            this.btn_payRent.Size = new System.Drawing.Size(195, 61);
+            this.btn_payRent.TabIndex = 10;
+            this.btn_payRent.Text = "Pay Rent";
+            this.btn_payRent.UseVisualStyleBackColor = false;
             // 
             // pictureBox7
             // 
@@ -319,8 +321,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(752, 421);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_rentApmt);
+            this.Controls.Add(this.btn_payRent);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -337,7 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_ViewRent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_History)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Profile)).EndInit();
@@ -367,15 +369,15 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pic_Home;
         private System.Windows.Forms.PictureBox pic_Logout;
-        private System.Windows.Forms.PictureBox pic_ViewRent;
+        private System.Windows.Forms.PictureBox pic_History;
         private System.Windows.Forms.PictureBox pic_Profile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_rentApmt;
+        private System.Windows.Forms.Button btn_payRent;
         private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
