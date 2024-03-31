@@ -127,16 +127,25 @@
     <Compile Include="Model\Users.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\vw_AllApartment.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\vw_AllUsers.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\vw_Landlords.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\VW_OccupiedApmt.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\vw_SpecificUser.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\vw_Tenants.cs">
+      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_VacantApmt.cs">
       <DependentUpon>HubitatDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

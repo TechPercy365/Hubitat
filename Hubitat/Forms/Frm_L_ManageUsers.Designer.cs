@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmb_Role = new System.Windows.Forms.ComboBox();
             this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -61,13 +62,14 @@
             this.dgv_Users = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.cmb_Role = new System.Windows.Forms.ComboBox();
+            this.pic_Decrypt = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Users)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Decrypt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -179,6 +181,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.panel2.Controls.Add(this.pic_Decrypt);
             this.panel2.Controls.Add(this.cmb_Role);
             this.panel2.Controls.Add(this.btn_Remove);
             this.panel2.Controls.Add(this.btn_Edit);
@@ -207,12 +210,24 @@
             this.panel2.Size = new System.Drawing.Size(735, 269);
             this.panel2.TabIndex = 14;
             // 
+            // cmb_Role
+            // 
+            this.cmb_Role.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_Role.FormattingEnabled = true;
+            this.cmb_Role.Items.AddRange(new object[] {
+            "TENANT",
+            "LANDLORD"});
+            this.cmb_Role.Location = new System.Drawing.Point(160, 232);
+            this.cmb_Role.Name = "cmb_Role";
+            this.cmb_Role.Size = new System.Drawing.Size(101, 22);
+            this.cmb_Role.TabIndex = 8;
+            // 
             // btn_Remove
             // 
             this.btn_Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
             this.btn_Remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Remove.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Remove.Location = new System.Drawing.Point(618, 232);
+            this.btn_Remove.Location = new System.Drawing.Point(636, 232);
             this.btn_Remove.Name = "btn_Remove";
             this.btn_Remove.Size = new System.Drawing.Size(81, 26);
             this.btn_Remove.TabIndex = 7;
@@ -225,7 +240,7 @@
             this.btn_Edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
             this.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Edit.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Edit.Location = new System.Drawing.Point(618, 198);
+            this.btn_Edit.Location = new System.Drawing.Point(636, 198);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(81, 26);
             this.btn_Edit.TabIndex = 7;
@@ -237,7 +252,7 @@
             this.btn_Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
             this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Add.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(618, 166);
+            this.btn_Add.Location = new System.Drawing.Point(636, 166);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(81, 26);
             this.btn_Add.TabIndex = 7;
@@ -260,50 +275,50 @@
             // 
             // txt_Pass
             // 
-            this.txt_Pass.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Pass.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Pass.Location = new System.Drawing.Point(446, 189);
             this.txt_Pass.Name = "txt_Pass";
-            this.txt_Pass.Size = new System.Drawing.Size(133, 22);
+            this.txt_Pass.Size = new System.Drawing.Size(133, 21);
             this.txt_Pass.TabIndex = 5;
             // 
             // txt_Phone
             // 
-            this.txt_Phone.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Phone.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Phone.Location = new System.Drawing.Point(278, 232);
             this.txt_Phone.Name = "txt_Phone";
-            this.txt_Phone.Size = new System.Drawing.Size(146, 22);
+            this.txt_Phone.Size = new System.Drawing.Size(146, 21);
             this.txt_Phone.TabIndex = 5;
             // 
             // txt_Email
             // 
-            this.txt_Email.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Email.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Email.Location = new System.Drawing.Point(278, 189);
             this.txt_Email.Name = "txt_Email";
-            this.txt_Email.Size = new System.Drawing.Size(146, 22);
+            this.txt_Email.Size = new System.Drawing.Size(146, 21);
             this.txt_Email.TabIndex = 5;
             // 
             // txt_Uname
             // 
-            this.txt_Uname.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Uname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Uname.Location = new System.Drawing.Point(157, 189);
             this.txt_Uname.Name = "txt_Uname";
-            this.txt_Uname.Size = new System.Drawing.Size(104, 22);
+            this.txt_Uname.Size = new System.Drawing.Size(104, 21);
             this.txt_Uname.TabIndex = 5;
             // 
             // txt_Lname
             // 
-            this.txt_Lname.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Lname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Lname.Location = new System.Drawing.Point(7, 232);
             this.txt_Lname.Name = "txt_Lname";
-            this.txt_Lname.Size = new System.Drawing.Size(131, 22);
+            this.txt_Lname.Size = new System.Drawing.Size(131, 21);
             this.txt_Lname.TabIndex = 5;
             // 
             // txt_Fname
             // 
-            this.txt_Fname.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Fname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Fname.Location = new System.Drawing.Point(7, 189);
             this.txt_Fname.Name = "txt_Fname";
-            this.txt_Fname.Size = new System.Drawing.Size(131, 22);
+            this.txt_Fname.Size = new System.Drawing.Size(131, 21);
             this.txt_Fname.TabIndex = 5;
             // 
             // btn_sortTenants
@@ -412,6 +427,7 @@
             this.dgv_Users.Name = "dgv_Users";
             this.dgv_Users.Size = new System.Drawing.Size(729, 119);
             this.dgv_Users.TabIndex = 2;
+            this.dgv_Users.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Users_CellClick);
             // 
             // txt_Search
             // 
@@ -433,16 +449,15 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // cmb_Role
+            // pic_Decrypt
             // 
-            this.cmb_Role.FormattingEnabled = true;
-            this.cmb_Role.Items.AddRange(new object[] {
-            "TENANT",
-            "LANDLORD"});
-            this.cmb_Role.Location = new System.Drawing.Point(160, 232);
-            this.cmb_Role.Name = "cmb_Role";
-            this.cmb_Role.Size = new System.Drawing.Size(101, 21);
-            this.cmb_Role.TabIndex = 8;
+            this.pic_Decrypt.Image = ((System.Drawing.Image)(resources.GetObject("pic_Decrypt.Image")));
+            this.pic_Decrypt.Location = new System.Drawing.Point(586, 189);
+            this.pic_Decrypt.Name = "pic_Decrypt";
+            this.pic_Decrypt.Size = new System.Drawing.Size(29, 21);
+            this.pic_Decrypt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Decrypt.TabIndex = 9;
+            this.pic_Decrypt.TabStop = false;
             // 
             // Frm_L_ManageUsers
             // 
@@ -470,6 +485,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Users)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Decrypt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,5 +526,6 @@
         private System.Windows.Forms.Button btn_Edit;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.ComboBox cmb_Role;
+        private System.Windows.Forms.PictureBox pic_Decrypt;
     }
 }

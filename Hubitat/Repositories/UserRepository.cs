@@ -39,7 +39,7 @@ namespace Hubitat.Repositories
                     db.UserInfo.Add(newInfo);
                     db.SaveChanges();
 
-
+                    MessageBox.Show("Account Created Successfuly!!");
                     return ErrorCode.Success;
                 }
             }
@@ -77,7 +77,7 @@ namespace Hubitat.Repositories
             }
         }
 
-        public ErrorCode RemoveUser(string userid, ref String outMessage) {
+        public ErrorCode RemoveUser(string userid) {
             ErrorCode retValue = ErrorCode.Error;
             try
             {
@@ -90,13 +90,12 @@ namespace Hubitat.Repositories
                     db.UserInfo.Remove(info);
                     db.SaveChanges();       // Execute the update
 
-                    outMessage = "Deleted Successfully";
+                    MessageBox.Show("Deleted Successfully");
                     retValue = ErrorCode.Success;
                 }
             }
             catch (Exception ex)
-            {
-                outMessage = ex.Message;
+            {                            
                 retValue = ErrorCode.Error;
                 MessageBox.Show(ex.Message);
             }

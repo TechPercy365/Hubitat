@@ -60,6 +60,20 @@
           <Property Name="userType" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'db_Hubitat.dbo.vw_AllApartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_AllApartment">
+          <Key>
+            <PropertyRef Name="Apartment_ID" />
+            <PropertyRef Name="Good for * Person" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Apartment_ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Apartment Description" Type="varchar" MaxLength="500" />
+          <Property Name="Good for * Person" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'db_Hubitat.dbo.vw_AllUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_AllUsers">
           <Key>
@@ -92,6 +106,20 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Landlords' does not have a prima
           <Property Name="Phone Number" Type="varchar" MaxLength="15" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'db_Hubitat.dbo.VW_OccupiedApmt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_OccupiedApmt">
+          <Key>
+            <PropertyRef Name="Apartment_ID" />
+            <PropertyRef Name="Good for * Person" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Apartment_ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Apartment Description" Type="varchar" MaxLength="500" />
+          <Property Name="Good for * Person" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'db_Hubitat.dbo.vw_SpecificUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_SpecificUser">
           <Key>
@@ -122,6 +150,20 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
           <Property Name="Last Name" Type="varchar" MaxLength="100" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Phone Number" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_Hubitat.dbo.vw_VacantApmt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_VacantApmt">
+          <Key>
+            <PropertyRef Name="Apartment_ID" />
+            <PropertyRef Name="Good for * Person" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Apartment_ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Apartment Description" Type="varchar" MaxLength="500" />
+          <Property Name="Good for * Person" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="500" />
         </EntityType>
         <Association Name="FK__Apartment__userI__5535A963">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
@@ -189,6 +231,15 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
           <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_AllApartment" EntityType="Self.vw_AllApartment" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_AllApartment].[Apartment_ID] AS [Apartment_ID], 
+    [vw_AllApartment].[Apartment Description] AS [Apartment Description], 
+    [vw_AllApartment].[Good for * Person] AS [Good for * Person], 
+    [vw_AllApartment].[Status] AS [Status], 
+    [vw_AllApartment].[Image] AS [Image]
+    FROM [dbo].[vw_AllApartment] AS [vw_AllApartment]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_AllUsers" EntityType="Self.vw_AllUsers" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_AllUsers].[User ID] AS [User ID], 
@@ -211,6 +262,15 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
     [vw_Landlords].[Phone Number] AS [Phone Number]
     FROM [dbo].[vw_Landlords] AS [vw_Landlords]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VW_OccupiedApmt" EntityType="Self.VW_OccupiedApmt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_OccupiedApmt].[Apartment_ID] AS [Apartment_ID], 
+    [VW_OccupiedApmt].[Apartment Description] AS [Apartment Description], 
+    [VW_OccupiedApmt].[Good for * Person] AS [Good for * Person], 
+    [VW_OccupiedApmt].[Status] AS [Status], 
+    [VW_OccupiedApmt].[Image] AS [Image]
+    FROM [dbo].[VW_OccupiedApmt] AS [VW_OccupiedApmt]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_SpecificUser" EntityType="Self.vw_SpecificUser" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_SpecificUser].[User ID] AS [User ID], 
@@ -232,6 +292,15 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
     [vw_Tenants].[Email] AS [Email], 
     [vw_Tenants].[Phone Number] AS [Phone Number]
     FROM [dbo].[vw_Tenants] AS [vw_Tenants]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_VacantApmt" EntityType="Self.vw_VacantApmt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VacantApmt].[Apartment_ID] AS [Apartment_ID], 
+    [vw_VacantApmt].[Apartment Description] AS [Apartment Description], 
+    [vw_VacantApmt].[Good for * Person] AS [Good for * Person], 
+    [vw_VacantApmt].[Status] AS [Status], 
+    [vw_VacantApmt].[Image] AS [Image]
+    FROM [dbo].[vw_VacantApmt] AS [vw_VacantApmt]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Apartment__userI__5535A963" Association="Self.FK__Apartment__userI__5535A963">
             <End Role="Users" EntitySet="Users" />
@@ -264,10 +333,13 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
           <EntitySet Name="Rent" EntityType="db_HubitatModel.Rent" />
           <EntitySet Name="UserInfo" EntityType="db_HubitatModel.UserInfo" />
           <EntitySet Name="Users" EntityType="db_HubitatModel.Users" />
+          <EntitySet Name="vw_AllApartment" EntityType="db_HubitatModel.vw_AllApartment" />
           <EntitySet Name="vw_AllUsers" EntityType="db_HubitatModel.vw_AllUsers" />
           <EntitySet Name="vw_Landlords" EntityType="db_HubitatModel.vw_Landlords" />
+          <EntitySet Name="VW_OccupiedApmt" EntityType="db_HubitatModel.VW_OccupiedApmt" />
           <EntitySet Name="vw_SpecificUser" EntityType="db_HubitatModel.vw_SpecificUser" />
           <EntitySet Name="vw_Tenants" EntityType="db_HubitatModel.vw_Tenants" />
+          <EntitySet Name="vw_VacantApmt" EntityType="db_HubitatModel.vw_VacantApmt" />
           <AssociationSet Name="FK__Apartment__userI__5535A963" Association="db_HubitatModel.FK__Apartment__userI__5535A963">
             <End Role="Users" EntitySet="Users" />
             <End Role="Apartments" EntitySet="Apartments" />
@@ -353,6 +425,18 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
           <NavigationProperty Name="Apartments" Relationship="db_HubitatModel.FK__Apartment__userI__5535A963" FromRole="Users" ToRole="Apartments" />
           <NavigationProperty Name="UserInfo" Relationship="db_HubitatModel.FK__UserInfo__userID__52593CB8" FromRole="Users" ToRole="UserInfo" />
         </EntityType>
+        <EntityType Name="vw_AllApartment">
+          <Key>
+            <PropertyRef Name="Apartment_ID" />
+            <PropertyRef Name="Good_for___Person" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Apartment_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Apartment_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Good_for___Person" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="vw_AllUsers">
           <Key>
             <PropertyRef Name="User_ID" />
@@ -381,6 +465,18 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="VW_OccupiedApmt">
+          <Key>
+            <PropertyRef Name="Apartment_ID" />
+            <PropertyRef Name="Good_for___Person" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Apartment_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Apartment_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Good_for___Person" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="vw_SpecificUser">
           <Key>
             <PropertyRef Name="User_ID" />
@@ -408,6 +504,18 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
           <Property Name="Last_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_VacantApmt">
+          <Key>
+            <PropertyRef Name="Apartment_ID" />
+            <PropertyRef Name="Good_for___Person" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Apartment_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Apartment_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Good_for___Person" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Apartment__userI__5535A963">
           <End Type="db_HubitatModel.Users" Role="Users" Multiplicity="1" />
@@ -469,7 +577,7 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -534,6 +642,17 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vw_AllApartment">
+            <EntityTypeMapping TypeName="db_HubitatModel.vw_AllApartment">
+              <MappingFragment StoreEntitySet="vw_AllApartment">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Good_for___Person" ColumnName="Good for * Person" />
+                <ScalarProperty Name="Apartment_Description" ColumnName="Apartment Description" />
+                <ScalarProperty Name="Apartment_ID" ColumnName="Apartment_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_AllUsers">
             <EntityTypeMapping TypeName="db_HubitatModel.vw_AllUsers">
               <MappingFragment StoreEntitySet="vw_AllUsers">
@@ -560,6 +679,17 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VW_OccupiedApmt">
+            <EntityTypeMapping TypeName="db_HubitatModel.VW_OccupiedApmt">
+              <MappingFragment StoreEntitySet="VW_OccupiedApmt">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Good_for___Person" ColumnName="Good for * Person" />
+                <ScalarProperty Name="Apartment_Description" ColumnName="Apartment Description" />
+                <ScalarProperty Name="Apartment_ID" ColumnName="Apartment_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_SpecificUser">
             <EntityTypeMapping TypeName="db_HubitatModel.vw_SpecificUser">
               <MappingFragment StoreEntitySet="vw_SpecificUser">
@@ -583,6 +713,17 @@ warning 6002: The table/view 'db_Hubitat.dbo.vw_Tenants' does not have a primary
                 <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="User_ID" ColumnName="User ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VacantApmt">
+            <EntityTypeMapping TypeName="db_HubitatModel.vw_VacantApmt">
+              <MappingFragment StoreEntitySet="vw_VacantApmt">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Good_for___Person" ColumnName="Good for * Person" />
+                <ScalarProperty Name="Apartment_Description" ColumnName="Apartment Description" />
+                <ScalarProperty Name="Apartment_ID" ColumnName="Apartment_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

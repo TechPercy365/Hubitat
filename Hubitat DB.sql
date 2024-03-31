@@ -93,6 +93,27 @@ FROM [Users] us
 JOIN [UserInfo] ui ON us.userID = ui.userID
 WHERE us.userID = 'specific_user_id' OR us.userName = 'specific_username'
 
+CREATE VIEW vw_AllApartment AS
+SELECT
+apmtID as 'Apartment_ID', apmtDescription as 'Apartment Description', apmtType as 'Good for * Person',
+apmtStatus as 'Status', apmtImg as 'Image'
+FROM [Apartments]
+
+CREATE VIEW VW_OccupiedApmt AS
+SELECT
+apmtID as 'Apartment_ID', apmtDescription as 'Apartment Description', apmtType as 'Good for * Person',
+apmtStatus as 'Status', apmtImg as 'Image'
+FROM [Apartments]
+WHERE apmtStatus = 'OCCUPIED'
+
+CREATE VIEW vw_VacantApmt AS
+SELECT
+apmtID as 'Apartment_ID', apmtDescription as 'Apartment Description', apmtType as 'Good for * Person',
+apmtStatus as 'Status', apmtImg as 'Image'
+FROM [Apartments]
+WHERE apmtStatus = 'VACANT'
+
+
 -- CREATE VIEW vw_rentApartment *apmt ID and apmtStatus only*
 
 --CREATE VIEW vw_PaymentHistory
@@ -126,4 +147,8 @@ UPDATE [UserInfo]
 SET	firstName = @firstName, lastName = @lastName, email = @email, phoneNum = @phoneNum
 WHERE userID = @userID
 
+CREATE PROCEDURE sp_UpdateApartment
+
 --CREATE PROCEDURE sp_EditUsersInfo
+
+

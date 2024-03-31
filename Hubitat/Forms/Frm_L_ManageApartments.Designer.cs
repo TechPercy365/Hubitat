@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pic_addApmtImg = new System.Windows.Forms.PictureBox();
             this.txt_apmtPrice = new System.Windows.Forms.TextBox();
             this.txt_apmtType = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.txt_apmtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgv_Apartments = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -223,6 +223,17 @@
             this.panel6.Size = new System.Drawing.Size(720, 66);
             this.panel6.TabIndex = 15;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "VACANT",
+            "OCCUPIED"});
+            this.comboBox1.Location = new System.Drawing.Point(484, 25);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(104, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
             // pic_addApmtImg
             // 
             this.pic_addApmtImg.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -233,6 +244,7 @@
             this.pic_addApmtImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_addApmtImg.TabIndex = 3;
             this.pic_addApmtImg.TabStop = false;
+            this.pic_addApmtImg.Click += new System.EventHandler(this.pic_addApmtImg_Click);
             // 
             // txt_apmtPrice
             // 
@@ -365,6 +377,7 @@
             this.pic_AddApmt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_AddApmt.TabIndex = 13;
             this.pic_AddApmt.TabStop = false;
+            this.pic_AddApmt.Click += new System.EventHandler(this.pic_AddApmt_Click);
             // 
             // pic_Apmt
             // 
@@ -372,6 +385,7 @@
             this.pic_Apmt.Location = new System.Drawing.Point(544, 60);
             this.pic_Apmt.Name = "pic_Apmt";
             this.pic_Apmt.Size = new System.Drawing.Size(180, 133);
+            this.pic_Apmt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Apmt.TabIndex = 12;
             this.pic_Apmt.TabStop = false;
             // 
@@ -386,6 +400,7 @@
             this.btn_sortOccupied.TabIndex = 11;
             this.btn_sortOccupied.Text = "Occupied";
             this.btn_sortOccupied.UseVisualStyleBackColor = false;
+            this.btn_sortOccupied.Click += new System.EventHandler(this.btn_sortOccupied_Click);
             // 
             // btn_sortVacant
             // 
@@ -398,18 +413,21 @@
             this.btn_sortVacant.TabIndex = 9;
             this.btn_sortVacant.Text = "Vacant";
             this.btn_sortVacant.UseVisualStyleBackColor = false;
+            this.btn_sortVacant.Click += new System.EventHandler(this.btn_sortVacant_Click);
             // 
             // btn_sortAll
             // 
-            this.btn_sortAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.btn_sortAll.BackColor = System.Drawing.Color.Black;
             this.btn_sortAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sortAll.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sortAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
             this.btn_sortAll.Location = new System.Drawing.Point(189, 9);
             this.btn_sortAll.Name = "btn_sortAll";
             this.btn_sortAll.Size = new System.Drawing.Size(57, 26);
             this.btn_sortAll.TabIndex = 10;
             this.btn_sortAll.Text = "All";
             this.btn_sortAll.UseVisualStyleBackColor = false;
+            this.btn_sortAll.Click += new System.EventHandler(this.btn_sortAll_Click);
             // 
             // txt_apmtSearch
             // 
@@ -438,18 +456,6 @@
             this.dgv_Apartments.Name = "dgv_Apartments";
             this.dgv_Apartments.Size = new System.Drawing.Size(535, 133);
             this.dgv_Apartments.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Vacant",
-            "Occupied",
-            "Maintenance"});
-            this.comboBox1.Location = new System.Drawing.Point(484, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(104, 21);
-            this.comboBox1.TabIndex = 4;
             // 
             // Frm_L_ManageApartments
             // 
