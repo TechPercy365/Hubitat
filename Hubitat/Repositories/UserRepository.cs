@@ -22,27 +22,14 @@ namespace Hubitat.Repositories
                 using (db = new db_HubitatEntities()) {
 
                     var newUser = new Users();
-                    var newInfo = new UserInfo();
+                    var newInfo = new UserInfo();                   
 
-                    var userIDs = db.Users.Select(u => u.userID).ToList();
-
-                    // Find the maximum numeric part of the existing user IDs
-                    int nextNumericID = 1;
-                    if (userIDs.Any())
-                    {
-                        var numericParts = userIDs.Select(id => int.Parse(id.Split('-')[1]));
-                        nextNumericID = numericParts.Max() + 1;
-                    }
-
-                    // Format the new user ID
-                    string uID = "U-" + nextNumericID.ToString("000");
-
-                    newUser.userID = uID;
+                    newUser.userID = GenerateUserID();
                     newUser.userName = uName;
                     newUser.userPass = HashPassword(uPass);
                     newUser.userType = uType;
 
-                    newInfo.userID = uID;
+                    newInfo.userID = GenerateUserID();
                     newInfo.firstName = fname;
                     newInfo.lastName = lname;
                     newInfo.email = uEmail;
@@ -58,9 +45,26 @@ namespace Hubitat.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" +ex.Message);
+                MessageBox.Show("Error: " +ex.Message);
                 return ErrorCode.Error;
             }
+        }
+
+        public string GenerateUserID()
+        {
+            string uID;
+            var userIDs = db.Users.Select(u => u.userID).ToList();
+
+            // Find the maximum numeric part of the existing user IDs
+            int nextNumericID = 1;
+            if (userIDs.Any())
+            {
+                var numericParts = userIDs.Select(id => int.Parse(id.Split('-')[1]));
+                nextNumericID = numericParts.Max() + 1;
+            }
+
+            // Format the new user ID
+            return uID = "U-" + nextNumericID.ToString("000");
         }
 
         public static byte[] HashPassword(string password)
@@ -73,18 +77,50 @@ namespace Hubitat.Repositories
             }
         }
 
-        //public ErrorCode RegisterLandlord()
-        //{
+        public ErrorCode RemoveUser(string userid, ref String outMessage) {
+            ErrorCode retValue = ErrorCode.Error;
+            try
+            {
+                using (db = new db_HubitatEntities())
+                {
+                    Users user = db.Users.Where(m => m.userID == userid).FirstOrDefault();
+                    UserInfo info = db.UserInfo.Where(m => m.userID == userid).FirstOrDefault();
+                    // Remove the user
+                    db.Users.Remove(user);
+                    db.UserInfo.Remove(info);
+                    db.SaveChanges();       // Execute the update
 
+                    outMessage = "Deleted Successfully";
+                    retValue = ErrorCode.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                outMessage = ex.Message;
+                retValue = ErrorCode.Error;
+                MessageBox.Show(ex.Message);
+            }
+            return retValue;
+        }
+
+        //public ErrorCode EditUserInfo() {
+        //    try
+        //    {
+        //        using (db = new db_HubitatEntities())
+        //        {
+        //            // Call the create stored procedure
+        // STORED PROCEDURE    db.sp_UpdateProduct(productID, productName, productType, productPrice);
+        //            MessageBox.Show("User Updated Successfully");
+        //            return ErrorCode.Success;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return ErrorCode.Error;
+        //    }
         //}
 
-        //public ErrorCode RemoveUser() { 
-
-        //}
-
-        //public ErrorCode EditUserInfo() { 
-
-        //}
         //public List<Users> AllUserRole()
         //{
         //    using (db = new db_HubitatEntities())

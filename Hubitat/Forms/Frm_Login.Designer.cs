@@ -47,6 +47,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label_Error = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -103,6 +104,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.label_Error);
             this.panel2.Controls.Add(this.img_ShowPassword);
             this.panel2.Controls.Add(this.btn_Login);
             this.panel2.Controls.Add(this.txt_Password);
@@ -241,6 +243,15 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label_Error
+            // 
+            this.label_Error.AutoSize = true;
+            this.label_Error.Font = new System.Drawing.Font("Georgia", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Error.Location = new System.Drawing.Point(292, 65);
+            this.label_Error.Name = "label_Error";
+            this.label_Error.Size = new System.Drawing.Size(0, 12);
+            this.label_Error.TabIndex = 6;
+            // 
             // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +260,7 @@
             this.ClientSize = new System.Drawing.Size(752, 421);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Login";
             this.Text = "Hubitat";
@@ -284,6 +296,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox img_ShowPassword;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label_Error;
     }
 }
 

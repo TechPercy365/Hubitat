@@ -31,13 +31,7 @@ namespace Hubitat.Forms
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
-            txt_Uname.Clear();
-            txt_Fname.Clear();
-            txt_Email.Clear();
-            txt_PhoneNum.Clear();
-            txt_Password.Clear();
-            txt_ConfirmPass.Clear();
-            txt_Lname.Clear();            
+            ClearTextboxes();          
         }       
 
         private void img_ShowPassword1_Click(object sender, EventArgs e)

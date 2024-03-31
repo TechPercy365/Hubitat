@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hubitat.Repositories
 {
-    internal class ApartmentRepository
+    public class ApartmentRepository
     {
+
     }
 }

@@ -64,6 +64,10 @@ namespace Hubitat
                 }
 
             }
+            else
+            {
+                label_Error.Text = "Invalid Username or Password. Please Try Again.";                
+            }
 
         }
         public static byte[] HashPassword(string password)

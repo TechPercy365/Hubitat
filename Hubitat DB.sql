@@ -115,26 +115,15 @@ WHERE us.userID = 'specific_user_id' OR us.userName = 'specific_username'
 
 -- STORED PROCEDURE METHODS
 
-CREATE PROCEDURE sp_RegisterTenant
-	@userID varchar(7), @userName varchar(50), @userPass varbinary(255),  @userType varchar(10),
-	@tenantID varchar(7), @firstName varchar(100), @lastName varchar(100), 
-	@email varchar(50), @phoneNum varchar(15)
-AS BEGIN	
-INSERT INTO [Users] (userID, userName, userPass, userType) 
-VALUES (@userID, @userName, @userPass,  @userType)
-INSERT INTO [Tenants] (tenantID, firstName, lastName, email, phoneNum, userID)
-VALUES (@tenantID, @firstName, @lastName, @email, @phoneNum, @userID)
-END
+CREATE PROCEDURE sp_UpdateUser
+	@userID varchar(7), @userName varchar(50), @userPass varbinary(255), @userType varchar(10),
+	@firstName varchar(100), @lastName varchar(100), @email varchar(50), @phoneNum varchar(15)	
+AS
+UPDATE [Users] 
+SET	userID = @userID, userName = @userName, userPass = @userPass, userType = @userType
+WHERE userID = @userID
+UPDATE [UserInfo]
+SET	firstName = @firstName, lastName = @lastName, email = @email, phoneNum = @phoneNum
+WHERE userID = @userID
 
-CREATE PROCEDURE sp_RegisterLandlord
-	@userID varchar(7), @userName varchar(50), @userPass varbinary(255),  @userType varchar(10),
-	@landlordID varchar(7), @firstName varchar(100), @lastName varchar(100), 
-	@email varchar(50), @phoneNum varchar(15)
-AS BEGIN	
-INSERT INTO [Users] (userID, userName, userPass, userType) 
-VALUES (@userID, @userName, @userPass,  @userType)
-INSERT INTO [Tenants] (tenantID, firstName, lastName, email, phoneNum, userID)
-VALUES (@landlordID, @firstName, @lastName, @email, @phoneNum, @userID)
-END
-
-CREATE PROCEDURE sp_EditUsersInfo
+--CREATE PROCEDURE sp_EditUsersInfo
