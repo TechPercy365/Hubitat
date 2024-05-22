@@ -14,19 +14,14 @@ namespace Hubitat.Model
     
     public partial class Users
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
-        {
-            this.Apartments = new HashSet<Apartments>();
-        }
-    
         public string userID { get; set; }
         public string userName { get; set; }
         public byte[] userPass { get; set; }
         public string userType { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Apartments> Apartments { get; set; }
-        public virtual UserInfo UserInfo { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string email { get; set; }
+        public string phoneNum { get; set; }
+        public Nullable<System.DateTime> dateCreated { get; set; }
     }
 }

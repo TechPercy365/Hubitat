@@ -4,7 +4,7 @@ USE activity1
 
 DROP DATABASE db_Hubitat
 
-DROP TABLE [UserInfo]
+DROP TABLE []
 
 CREATE TABLE [Users] (
 	userID varchar(7) PRIMARY KEY NOT NULL,
@@ -22,15 +22,14 @@ CREATE TABLE [UserInfo] (
 	FOREIGN KEY (userID) REFERENCES [Users](userID)	
 )
 
-CREATE TABLE [Apartments] (
-	apmtID varchar(7) PRIMARY KEY NOT NULL,
-	apmtDescription varchar(500),
-	apmtPrice decimal(5,2) NOT NULL,	
-	apmtType varchar(25) NOT NULL, -- Good for * persons
-	apmtStatus varchar(10) NOT NULL, -- Vacant, Occupied, Maintenance
-	apmtImg varchar(500),
-	userID varchar(7) NOT NULL,
-	FOREIGN KEY (userID) REFERENCES [Users](userID)
+
+CREATE TABLE [Condo] (
+	condoID varchar(7) PRIMARY KEY NOT NULL,
+	condoDescription varchar(500),
+	condoPrice decimal(5,2) NOT NULL,	
+	condoType varchar(25) NOT NULL, -- Good for * persons
+	condoStatus varchar(10) NOT NULL, -- Vacant, Occupied
+	condoImg varchar(500),	
 )
 
 CREATE TABLE [Rent] (
@@ -38,7 +37,7 @@ CREATE TABLE [Rent] (
 	userID varchar(7),
 	FOREIGN KEY (userID) REFERENCES [UserInfo](userID),
 	apmtID varchar(7),
-	FOREIGN KEY (apmtID) REFERENCES [Apartments](apmtID),
+	FOREIGN KEY (apmtID) REFERENCES [Condo](condoID),
 	CheckInDate DATE,
 	CheckOutDate DATE,
 	TotalAmount decimal(10,2)
@@ -55,7 +54,7 @@ CREATE TABLE [Payment] (
 	payDate DATE NOT NULL --Date the tenant paid for their monthly rent
 )
 
-SELECT * FROM [Users] 
+SELECT * FROM [Apartments] 
 
 ---<<<<<<<<<<<   VIEW METHODS   >>>>>>>>>>>>---
 
@@ -74,7 +73,7 @@ ui.firstName as 'First Name', ui.lastName as 'Last Name',
 ui.email as 'Email', ui.phoneNum as 'Phone Number'
 FROM [Users] us 
 JOIN [UserInfo] ui ON us.userID = ui.userID 
-WHERE us.userType = 'TENANT'
+WHERE us.userType = 'RESIDENT'
 
 CREATE VIEW vw_Landlords AS
 SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
@@ -82,7 +81,7 @@ ui.firstName as 'First Name', ui.lastName as 'Last Name',
 ui.email as 'Email', ui.phoneNum as 'Phone Number'
 FROM [Users] us 
 JOIN [UserInfo] ui ON us.userID = ui.userID
-WHERE us.userType = 'LANDLORD'
+WHERE us.userType = 'ADMIN'
 
 CREATE VIEW vw_SpecificUser 
 AS
@@ -136,12 +135,12 @@ WHERE apmtStatus = 'VACANT'
 
 -- STORED PROCEDURE METHODS
 
-CREATE PROCEDURE sp_UpdateUser
-	@userID varchar(7), @userName varchar(50), @userPass varbinary(255), @userType varchar(10),
+CREATE PROCEDURE sp_UserUpdate
+	@userID varchar(7), @userName varchar(50), @userType varchar(10),
 	@firstName varchar(100), @lastName varchar(100), @email varchar(50), @phoneNum varchar(15)	
 AS
 UPDATE [Users] 
-SET	userID = @userID, userName = @userName, userPass = @userPass, userType = @userType
+SET	userID = @userID, userName = @userName, userType = @userType
 WHERE userID = @userID
 UPDATE [UserInfo]
 SET	firstName = @firstName, lastName = @lastName, email = @email, phoneNum = @phoneNum

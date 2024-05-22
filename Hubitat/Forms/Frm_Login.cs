@@ -1,5 +1,6 @@
 ﻿using Hubitat.Forms;
 using Hubitat.Model;
+using Hubitat.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,11 @@ namespace Hubitat
 {
     public partial class Frm_Login : Form
     {
-        db_HubitatEntities db;
+        hubitatDBEntities db;
         public Frm_Login()
         {
             InitializeComponent();
-            db = new db_HubitatEntities();
+            db = new hubitatDBEntities();
         }
 
         private void btn_Register_Click(object sender, EventArgs e)
@@ -47,15 +48,15 @@ namespace Hubitat
 
             if (VerifyAccount(txt_Username.Text, txt_Password.Text)) {
 
-                string usertype = GetUserType(txt_Username.Text);
+                string usertype = GetUserType(txt_Username.Text);                                
 
                 switch (usertype) {
-                    case "TENANT":
-                        new Frm_TenantDashboard().Show();
+                    case "CUSTOMER":
+                        new Frm_CustomerDashboard().Show();
                         this.Hide();
                         break;
-                    case "LANDLORD":
-                        new Frm_LandlordDashboard().Show();
+                    case "EMPLOYEE":
+                        new Frm_AdminDashboard().Show();
                         this.Hide();
                         break;
                     default:
@@ -81,7 +82,7 @@ namespace Hubitat
         }
 
         public bool VerifyAccount(string uname, string pass) {
-            using (var dbContext = new db_HubitatEntities())
+            using (var dbContext = new hubitatDBEntities())
             {
                 // Retrieve the hashed password from the database for the provided username
                 var user = dbContext.Users.FirstOrDefault(u => u.userName == uname);
@@ -89,9 +90,10 @@ namespace Hubitat
                 {
                     // Hash the password inputted by the user
                     byte[] hashedPasswordInput = HashPassword(pass);
-
+                    UserLogged.GetInstance().User = user;
                     // Compare hashed passwords
                     return hashedPasswordInput.SequenceEqual(user.userPass);
+
                 }
             }
             return false; 

@@ -1,42 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hubitat.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Hubitat.Repositories
 {
     public class UserRepository
     {
-        private db_HubitatEntities db;
-        public UserRepository() { db = new db_HubitatEntities(); }
+        private hubitatDBEntities db;
+        public UserRepository() { db = new hubitatDBEntities(); }
 
         public ErrorCode RegisterUser(String uName, String uPass, String uType, String fname, String lname, String uEmail, String phone)
         {
             try
             {
-                using (db = new db_HubitatEntities()) {
+                using (db = new hubitatDBEntities())
+                {
 
-                    var newUser = new Users();
-                    var newInfo = new UserInfo();                   
+                    var newUser = new Users();                    
 
                     newUser.userID = GenerateUserID();
                     newUser.userName = uName;
                     newUser.userPass = HashPassword(uPass);
-                    newUser.userType = uType;
+                    newUser.userType = uType;                    
+                    newUser.firstName = fname;
+                    newUser.lastName = lname;
+                    newUser.email = uEmail;
+                    newUser.phoneNum = phone;
+                    newUser.dateCreated = DateTime.Now;
 
-                    newInfo.userID = GenerateUserID();
-                    newInfo.firstName = fname;
-                    newInfo.lastName = lname;
-                    newInfo.email = uEmail;
-                    newInfo.phoneNum = phone;
-
-                    db.Users.Add(newUser);
-                    db.UserInfo.Add(newInfo);
+                    db.Users.Add(newUser);                    
                     db.SaveChanges();
 
                     MessageBox.Show("Account Created Successfuly!!");
@@ -45,7 +45,7 @@ namespace Hubitat.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " +ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
                 return ErrorCode.Error;
             }
         }
@@ -77,17 +77,16 @@ namespace Hubitat.Repositories
             }
         }
 
-        public ErrorCode RemoveUser(string userid) {
+        public ErrorCode RemoveUser(string userid)
+        {
             ErrorCode retValue = ErrorCode.Error;
             try
             {
-                using (db = new db_HubitatEntities())
+                using (db = new hubitatDBEntities())
                 {
-                    Users user = db.Users.Where(m => m.userID == userid).FirstOrDefault();
-                    UserInfo info = db.UserInfo.Where(m => m.userID == userid).FirstOrDefault();
+                    Users user = db.Users.Where(m => m.userID == userid).FirstOrDefault();                    
                     // Remove the user
-                    db.Users.Remove(user);
-                    db.UserInfo.Remove(info);
+                    db.Users.Remove(user);                    
                     db.SaveChanges();       // Execute the update
 
                     MessageBox.Show("Deleted Successfully");
@@ -95,42 +94,66 @@ namespace Hubitat.Repositories
                 }
             }
             catch (Exception ex)
-            {                            
+            {
                 retValue = ErrorCode.Error;
                 MessageBox.Show(ex.Message);
             }
             return retValue;
         }
 
-        //public ErrorCode EditUserInfo() {
-        //    try
-        //    {
-        //        using (db = new db_HubitatEntities())
-        //        {
-        //            // Call the create stored procedure
-        // STORED PROCEDURE    db.sp_UpdateProduct(productID, productName, productType, productPrice);
-        //            MessageBox.Show("User Updated Successfully");
-        //            return ErrorCode.Success;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        return ErrorCode.Error;
-        //    }
-        //}
+        public ErrorCode EditUser(String id, String username, String utype, String fname, String lname, String email, String phone)
+        {
+            try
+            {
+                DateTime dateCreated = DateTime.Now;
+                using (db = new hubitatDBEntities())
+                {
+                    //Call the create stored procedure
+                    db.sp_UserUpdate(id, username, utype, fname, lname, email, phone, dateCreated);
+                    MessageBox.Show("Updated Successfully");
+                    return ErrorCode.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:", ex.Message);
+                return ErrorCode.Error;
+            }
+        }
 
-        //public List<Users> AllUserRole()
-        //{
-        //    using (db = new db_HubitatEntities())
-        //    {
-        //        return db.vw_AllUsers.ToList();
-        //    }
-        //}
+        public ErrorCode CreateAdm(String uName, String uPass, String uType, String fname, String lname, String uEmail, String phone)
+        {
+            try
+            {
+                using (db = new hubitatDBEntities())
+                {
 
-        //public ErrorCode SearchUserNameOrUserID() { 
+                    var newUser = new Users();
 
-        //}
+                    newUser.userID = GenerateUserID();
+                    newUser.userName = uName;
+                    newUser.userPass = HashPassword(uPass);
+                    newUser.userType = uType;
+                    newUser.firstName = fname;
+                    newUser.lastName = lname;
+                    newUser.email = uEmail;
+                    newUser.phoneNum = phone;
+                    newUser.dateCreated = DateTime.Now;
+
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Owner Created Successfuly!!");
+                    return ErrorCode.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return ErrorCode.Error;
+            }
+        }
+
 
     }
 }

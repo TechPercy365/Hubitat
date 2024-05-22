@@ -382,7 +382,7 @@
   <data name="img_showPass2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAMulJREFUeF7t3XncffW893FKSqNEoyTKlAiRsTJkKCnHdGQmmQ5uwzlmMhxlTKbE
+        DAAACwwBP0AiyAAAMulJREFUeF7t3XncffW893FKSqNEoyTKlAiRsTJkKCnHdGQmmQ5uwzlmMhxlTKbE
         MWWIqCPKWKITUVGkREmFUtEgTcp936/3rd/tJ59fXevaa++9htfr8Xj+cRxq77XXutbea33X93sDMzMz
         MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMz
         MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMz
@@ -605,7 +605,7 @@
   <data name="img_ShowPassword1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAMulJREFUeF7t3XncffW893FKSqNEoyTKlAiRsTJkKCnHdGQmmQ5uwzlmMhxlTKbE
+        DAAACwwBP0AiyAAAMulJREFUeF7t3XncffW893FKSqNEoyTKlAiRsTJkKCnHdGQmmQ5uwzlmMhxlTKbE
         MWWIqCPKWKITUVGkREmFUtEgTcp936/3rd/tJ59fXevaa++9htfr8Xj+cRxq77XXutbea33X93sDMzMz
         MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMz
         MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMz
@@ -2322,7 +2322,7 @@
         PrEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="hidden.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfsAAAHLCAYAAADP8TF/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAO9FJREFUeF7t3W3IbVd16PEiIUgIEkSUICIigoQgikgliBKkQSyiiCKIRSyCorQY
@@ -2585,5 +2585,8 @@
   </data>
   <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
   </metadata>
 </root>

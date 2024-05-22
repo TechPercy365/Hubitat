@@ -35,6 +35,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.x_Exit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label_Error = new System.Windows.Forms.Label();
             this.img_ShowPassword = new System.Windows.Forms.PictureBox();
             this.btn_Login = new System.Windows.Forms.Button();
             this.txt_Password = new System.Windows.Forms.TextBox();
@@ -47,7 +48,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label_Error = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -119,6 +120,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(545, 325);
             this.panel2.TabIndex = 1;
+            // 
+            // label_Error
+            // 
+            this.label_Error.AutoSize = true;
+            this.label_Error.Font = new System.Drawing.Font("Georgia", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Error.Location = new System.Drawing.Point(292, 65);
+            this.label_Error.Name = "label_Error";
+            this.label_Error.Size = new System.Drawing.Size(0, 12);
+            this.label_Error.TabIndex = 6;
             // 
             // img_ShowPassword
             // 
@@ -223,6 +233,7 @@
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(276, 325);
@@ -243,14 +254,17 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label_Error
+            // label5
             // 
-            this.label_Error.AutoSize = true;
-            this.label_Error.Font = new System.Drawing.Font("Georgia", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Error.Location = new System.Drawing.Point(292, 65);
-            this.label_Error.Name = "label_Error";
-            this.label_Error.Size = new System.Drawing.Size(0, 12);
-            this.label_Error.TabIndex = 6;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.label5.Location = new System.Drawing.Point(20, 274);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(237, 16);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "\"Because Every Pet Deserves a Home\"";
             // 
             // Frm_Login
             // 
@@ -271,6 +285,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -297,6 +312,7 @@
         private System.Windows.Forms.PictureBox img_ShowPassword;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label_Error;
+        private System.Windows.Forms.Label label5;
     }
 }
 

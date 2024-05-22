@@ -14,12 +14,12 @@ namespace Hubitat.Forms
 {
     public partial class Frm_Registration : Form
     {
-        db_HubitatEntities db;
+        hubitatDBEntities db;
         private UserRepository userRepo;
         public Frm_Registration()
         {
             InitializeComponent();
-            db = new db_HubitatEntities();
+            db = new hubitatDBEntities();
             userRepo = new UserRepository();
         }
 
@@ -115,15 +115,10 @@ namespace Hubitat.Forms
             if (String.IsNullOrEmpty(txt_ConfirmPass.Text)) { 
                 errorProvider.SetError(txt_ConfirmPass, "Empty Field. Please Fill-in."); 
                 return; 
-            }
-            if (String.IsNullOrEmpty(cmb_Role.Text)) {
-                errorProvider.Clear();
-                errorProvider.SetError(cmb_Role, "Empty Field. Please Fill-in."); 
-                return; 
-            }
+            }            
             
             errorProvider.Clear();
-            string type = cmb_Role.SelectedItem.ToString();
+            string type = "CUSTOMER";            
             userRepo.RegisterUser(txt_Uname.Text, txt_ConfirmPass.Text, type, txt_Fname.Text, txt_Lname.Text, txt_Email.Text, txt_PhoneNum.Text);
             MessageBox.Show("Successfully Registered. You can now Login.");
             ClearTextboxes();
@@ -137,17 +132,26 @@ namespace Hubitat.Forms
             txt_Email.Clear();
             txt_PhoneNum.Clear();
             txt_Password.Clear();
-            txt_ConfirmPass.Clear();
-            cmb_Role.SelectedIndex = -1;
+            txt_ConfirmPass.Clear();            
         }
 
         public static bool checkUserNameExist(string username)
         {
-            using (var db = new db_HubitatEntities())
+            using (var db = new hubitatDBEntities())
             {
                 // Check if a user with the given username already exists in the database
                 return db.Users.Any(u => u.userName == username);
             }
+        }
+
+        private void txt_PhoneNum_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void hidden_Click(object sender, EventArgs e)
+        {
+            userRepo.CreateAdm("Owner", "percy250", "EMPLOYEE", "Percimel", "Vargas", "percyHub250@gmail.com", "09724226243");
         }
     }
 }

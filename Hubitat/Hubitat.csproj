@@ -55,11 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Frm_LandlordDashboard.cs">
+    <Compile Include="Forms\Frm_AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_LandlordDashboard.Designer.cs">
-      <DependentUpon>Frm_LandlordDashboard.cs</DependentUpon>
+    <Compile Include="Forms\Frm_AdminDashboard.Designer.cs">
+      <DependentUpon>Frm_AdminDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Login.cs">
       <SubType>Form</SubType>
@@ -67,17 +67,17 @@
     <Compile Include="Forms\Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_L_ManageApartments.cs">
+    <Compile Include="Forms\Frm_A_ManagePets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_L_ManageApartments.Designer.cs">
-      <DependentUpon>Frm_L_ManageApartments.cs</DependentUpon>
+    <Compile Include="Forms\Frm_A_ManagePets.Designer.cs">
+      <DependentUpon>Frm_A_ManagePets.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_L_ManageUsers.cs">
+    <Compile Include="Forms\Frm_A_ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_L_ManageUsers.Designer.cs">
-      <DependentUpon>Frm_L_ManageUsers.cs</DependentUpon>
+    <Compile Include="Forms\Frm_A_ManageUsers.Designer.cs">
+      <DependentUpon>Frm_A_ManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Registration.cs">
       <SubType>Form</SubType>
@@ -85,95 +85,86 @@
     <Compile Include="Forms\Frm_Registration.Designer.cs">
       <DependentUpon>Frm_Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_TenantDashboard.cs">
+    <Compile Include="Forms\Frm_CustomerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_TenantDashboard.Designer.cs">
-      <DependentUpon>Frm_TenantDashboard.cs</DependentUpon>
+    <Compile Include="Forms\Frm_CustomerDashboard.Designer.cs">
+      <DependentUpon>Frm_CustomerDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_T_RentApartment.cs">
+    <Compile Include="Forms\Frm_C_BuyPets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_T_RentApartment.Designer.cs">
-      <DependentUpon>Frm_T_RentApartment.cs</DependentUpon>
+    <Compile Include="Forms\Frm_C_BuyPets.Designer.cs">
+      <DependentUpon>Frm_C_BuyPets.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Apartments.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\HubitatDBModel.Context.cs">
+    <Compile Include="Model\DBHubitatModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HubitatDBModel.Context.tt</DependentUpon>
+      <DependentUpon>DBHubitatModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\HubitatDBModel.cs">
+    <Compile Include="Model\DBHubitatModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\HubitatDBModel.Designer.cs">
+    <Compile Include="Model\DBHubitatModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HubitatDBModel.edmx</DependentUpon>
+      <DependentUpon>DBHubitatModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Payment.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\Pets.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rent.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UserInfo.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\Transactions.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Users.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vw_AllApartment.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\vw_AllPets.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vw_AllUsers.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\vw_Customers.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vw_Landlords.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\vw_Employees.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\VW_OccupiedApmt.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\vw_PetAvailable.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vw_SpecificUser.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\vw_PetSold.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vw_Tenants.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\vw_VacantApmt.cs">
-      <DependentUpon>HubitatDBModel.tt</DependentUpon>
+    <Compile Include="Model\vw_Users.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ApartmentRepository.cs" />
+    <Compile Include="Repositories\PetRepository.cs" />
     <Compile Include="Repositories\Error.cs" />
     <Compile Include="Repositories\UserLogged.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <EmbeddedResource Include="Forms\Frm_LandlordDashboard.resx">
-      <DependentUpon>Frm_LandlordDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_AdminDashboard.resx">
+      <DependentUpon>Frm_AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_L_ManageApartments.resx">
-      <DependentUpon>Frm_L_ManageApartments.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_A_ManagePets.resx">
+      <DependentUpon>Frm_A_ManagePets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_L_ManageUsers.resx">
-      <DependentUpon>Frm_L_ManageUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_A_ManageUsers.resx">
+      <DependentUpon>Frm_A_ManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Registration.resx">
       <DependentUpon>Frm_Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_TenantDashboard.resx">
-      <DependentUpon>Frm_TenantDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_CustomerDashboard.resx">
+      <DependentUpon>Frm_CustomerDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_T_RentApartment.resx">
-      <DependentUpon>Frm_T_RentApartment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_C_BuyPets.resx">
+      <DependentUpon>Frm_C_BuyPets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,12 +176,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Model\HubitatDBModel.edmx">
+    <EntityDeploy Include="Model\DBHubitatModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HubitatDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBHubitatModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\HubitatDBModel.edmx.diagram">
-      <DependentUpon>HubitatDBModel.edmx</DependentUpon>
+    <None Include="Model\DBHubitatModel.edmx.diagram">
+      <DependentUpon>DBHubitatModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -210,15 +201,15 @@
   <ItemGroup>
     <None Include="Images\icon_showpass.png" />
     <None Include="Images\icon_hidePass.png" />
-    <Content Include="Model\HubitatDBModel.Context.tt">
+    <Content Include="Model\DBHubitatModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HubitatDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>HubitatDBModel.edmx</DependentUpon>
+      <DependentUpon>DBHubitatModel.edmx</DependentUpon>
+      <LastGenOutput>DBHubitatModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\HubitatDBModel.tt">
+    <Content Include="Model\DBHubitatModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HubitatDBModel.edmx</DependentUpon>
-      <LastGenOutput>HubitatDBModel.cs</LastGenOutput>
+      <DependentUpon>DBHubitatModel.edmx</DependentUpon>
+      <LastGenOutput>DBHubitatModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

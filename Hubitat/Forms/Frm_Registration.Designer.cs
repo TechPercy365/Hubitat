@@ -39,7 +39,6 @@
             this.img_ShowPassword1 = new System.Windows.Forms.PictureBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Register = new System.Windows.Forms.Button();
-            this.cmb_Role = new System.Windows.Forms.ComboBox();
             this.txt_ConfirmPass = new System.Windows.Forms.TextBox();
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.txt_PhoneNum = new System.Windows.Forms.TextBox();
@@ -51,7 +50,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -59,7 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pic_Back = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.hidden = new System.Windows.Forms.PictureBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,7 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Back)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hidden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +121,6 @@
             this.panel2.Controls.Add(this.img_ShowPassword1);
             this.panel2.Controls.Add(this.btn_Clear);
             this.panel2.Controls.Add(this.btn_Register);
-            this.panel2.Controls.Add(this.cmb_Role);
             this.panel2.Controls.Add(this.txt_ConfirmPass);
             this.panel2.Controls.Add(this.txt_Password);
             this.panel2.Controls.Add(this.txt_PhoneNum);
@@ -135,7 +132,6 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label12);
@@ -151,7 +147,7 @@
             // img_showPass2
             // 
             this.img_showPass2.Image = ((System.Drawing.Image)(resources.GetObject("img_showPass2.Image")));
-            this.img_showPass2.Location = new System.Drawing.Point(354, 237);
+            this.img_showPass2.Location = new System.Drawing.Point(355, 190);
             this.img_showPass2.Name = "img_showPass2";
             this.img_showPass2.Size = new System.Drawing.Size(31, 22);
             this.img_showPass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,7 +158,7 @@
             // img_ShowPassword1
             // 
             this.img_ShowPassword1.Image = ((System.Drawing.Image)(resources.GetObject("img_ShowPassword1.Image")));
-            this.img_ShowPassword1.Location = new System.Drawing.Point(354, 190);
+            this.img_ShowPassword1.Location = new System.Drawing.Point(355, 143);
             this.img_ShowPassword1.Name = "img_ShowPassword1";
             this.img_ShowPassword1.Size = new System.Drawing.Size(31, 22);
             this.img_ShowPassword1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,22 +194,10 @@
             this.btn_Register.UseVisualStyleBackColor = false;
             this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
-            // cmb_Role
-            // 
-            this.cmb_Role.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_Role.FormattingEnabled = true;
-            this.cmb_Role.Items.AddRange(new object[] {
-            "TENANT",
-            "LANDLORD"});
-            this.cmb_Role.Location = new System.Drawing.Point(16, 237);
-            this.cmb_Role.Name = "cmb_Role";
-            this.cmb_Role.Size = new System.Drawing.Size(149, 24);
-            this.cmb_Role.TabIndex = 4;
-            // 
             // txt_ConfirmPass
             // 
             this.txt_ConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ConfirmPass.Location = new System.Drawing.Point(199, 237);
+            this.txt_ConfirmPass.Location = new System.Drawing.Point(200, 190);
             this.txt_ConfirmPass.Name = "txt_ConfirmPass";
             this.txt_ConfirmPass.Size = new System.Drawing.Size(149, 22);
             this.txt_ConfirmPass.TabIndex = 7;
@@ -222,7 +206,7 @@
             // txt_Password
             // 
             this.txt_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Password.Location = new System.Drawing.Point(199, 190);
+            this.txt_Password.Location = new System.Drawing.Point(200, 143);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(149, 22);
             this.txt_Password.TabIndex = 7;
@@ -231,15 +215,16 @@
             // txt_PhoneNum
             // 
             this.txt_PhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PhoneNum.Location = new System.Drawing.Point(199, 143);
+            this.txt_PhoneNum.Location = new System.Drawing.Point(200, 92);
             this.txt_PhoneNum.Name = "txt_PhoneNum";
             this.txt_PhoneNum.Size = new System.Drawing.Size(149, 22);
             this.txt_PhoneNum.TabIndex = 6;
+            this.txt_PhoneNum.TextChanged += new System.EventHandler(this.txt_PhoneNum_TextChanged);
             // 
             // txt_Email
             // 
             this.txt_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Email.Location = new System.Drawing.Point(199, 92);
+            this.txt_Email.Location = new System.Drawing.Point(16, 237);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(149, 22);
             this.txt_Email.TabIndex = 5;
@@ -273,7 +258,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(205)))), ((int)(((byte)(172)))));
-            this.label11.Location = new System.Drawing.Point(196, 215);
+            this.label11.Location = new System.Drawing.Point(197, 168);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 18);
             this.label11.TabIndex = 4;
@@ -284,7 +269,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(205)))), ((int)(((byte)(172)))));
-            this.label10.Location = new System.Drawing.Point(196, 168);
+            this.label10.Location = new System.Drawing.Point(197, 121);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 18);
             this.label10.TabIndex = 4;
@@ -295,7 +280,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(205)))), ((int)(((byte)(172)))));
-            this.label9.Location = new System.Drawing.Point(196, 121);
+            this.label9.Location = new System.Drawing.Point(197, 70);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 18);
             this.label9.TabIndex = 4;
@@ -306,22 +291,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(205)))), ((int)(((byte)(172)))));
-            this.label8.Location = new System.Drawing.Point(196, 70);
+            this.label8.Location = new System.Drawing.Point(13, 215);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 18);
             this.label8.TabIndex = 4;
             this.label8.Text = "Email:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(205)))), ((int)(((byte)(172)))));
-            this.label6.Location = new System.Drawing.Point(13, 215);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 18);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Role:";
             // 
             // label4
             // 
@@ -393,22 +367,23 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.hidden);
             this.panel3.Location = new System.Drawing.Point(418, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(127, 325);
             this.panel3.TabIndex = 0;
             // 
-            // pictureBox1
+            // hidden
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 127);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.hidden.BackColor = System.Drawing.Color.Transparent;
+            this.hidden.Image = ((System.Drawing.Image)(resources.GetObject("hidden.Image")));
+            this.hidden.Location = new System.Drawing.Point(0, 0);
+            this.hidden.Name = "hidden";
+            this.hidden.Size = new System.Drawing.Size(127, 127);
+            this.hidden.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.hidden.TabIndex = 0;
+            this.hidden.TabStop = false;
+            this.hidden.Click += new System.EventHandler(this.hidden_Click);
             // 
             // errorProvider
             // 
@@ -434,7 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.img_ShowPassword1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Back)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hidden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -448,7 +423,7 @@
         private System.Windows.Forms.Label x_Exit;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox hidden;
         private System.Windows.Forms.PictureBox pic_Back;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_Fname;
@@ -457,10 +432,8 @@
         private System.Windows.Forms.TextBox txt_Uname;
         private System.Windows.Forms.TextBox txt_Lname;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmb_Role;
         private System.Windows.Forms.TextBox txt_ConfirmPass;
         private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.TextBox txt_PhoneNum;
