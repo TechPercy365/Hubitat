@@ -39,7 +39,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pic_Decrypt = new System.Windows.Forms.PictureBox();
+            this.btn_sortEmp = new System.Windows.Forms.Button();
+            this.btn_sortCust = new System.Windows.Forms.Button();
+            this.pic_ShowPass = new System.Windows.Forms.PictureBox();
             this.cmb_Role = new System.Windows.Forms.ComboBox();
             this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -60,13 +62,11 @@
             this.dgv_Users = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btn_sortCust = new System.Windows.Forms.Button();
-            this.btn_sortEmp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Decrypt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ShowPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Users)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +182,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
             this.panel2.Controls.Add(this.btn_sortEmp);
             this.panel2.Controls.Add(this.btn_sortCust);
-            this.panel2.Controls.Add(this.pic_Decrypt);
+            this.panel2.Controls.Add(this.pic_ShowPass);
             this.panel2.Controls.Add(this.cmb_Role);
             this.panel2.Controls.Add(this.btn_Remove);
             this.panel2.Controls.Add(this.btn_Add);
@@ -208,23 +208,49 @@
             this.panel2.Size = new System.Drawing.Size(735, 269);
             this.panel2.TabIndex = 14;
             // 
-            // pic_Decrypt
+            // btn_sortEmp
             // 
-            this.pic_Decrypt.Image = ((System.Drawing.Image)(resources.GetObject("pic_Decrypt.Image")));
-            this.pic_Decrypt.Location = new System.Drawing.Point(586, 189);
-            this.pic_Decrypt.Name = "pic_Decrypt";
-            this.pic_Decrypt.Size = new System.Drawing.Size(29, 21);
-            this.pic_Decrypt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Decrypt.TabIndex = 9;
-            this.pic_Decrypt.TabStop = false;
+            this.btn_sortEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.btn_sortEmp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_sortEmp.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sortEmp.Location = new System.Drawing.Point(458, 8);
+            this.btn_sortEmp.Name = "btn_sortEmp";
+            this.btn_sortEmp.Size = new System.Drawing.Size(100, 26);
+            this.btn_sortEmp.TabIndex = 11;
+            this.btn_sortEmp.Text = "Employees";
+            this.btn_sortEmp.UseVisualStyleBackColor = false;
+            this.btn_sortEmp.Click += new System.EventHandler(this.btn_sortEmp_Click);
+            // 
+            // btn_sortCust
+            // 
+            this.btn_sortCust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.btn_sortCust.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_sortCust.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sortCust.Location = new System.Drawing.Point(333, 8);
+            this.btn_sortCust.Name = "btn_sortCust";
+            this.btn_sortCust.Size = new System.Drawing.Size(100, 26);
+            this.btn_sortCust.TabIndex = 10;
+            this.btn_sortCust.Text = "Customers";
+            this.btn_sortCust.UseVisualStyleBackColor = false;
+            this.btn_sortCust.Click += new System.EventHandler(this.btn_sortCust_Click);
+            // 
+            // pic_ShowPass
+            // 
+            this.pic_ShowPass.Image = ((System.Drawing.Image)(resources.GetObject("pic_ShowPass.Image")));
+            this.pic_ShowPass.Location = new System.Drawing.Point(586, 189);
+            this.pic_ShowPass.Name = "pic_ShowPass";
+            this.pic_ShowPass.Size = new System.Drawing.Size(29, 21);
+            this.pic_ShowPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_ShowPass.TabIndex = 9;
+            this.pic_ShowPass.TabStop = false;
             // 
             // cmb_Role
             // 
             this.cmb_Role.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Role.FormattingEnabled = true;
             this.cmb_Role.Items.AddRange(new object[] {
-            "TENANT",
-            "LANDLORD"});
+            "CUSTOMER",
+            "EMPLOYEE"});
             this.cmb_Role.Location = new System.Drawing.Point(160, 232);
             this.cmb_Role.Name = "cmb_Role";
             this.cmb_Role.Size = new System.Drawing.Size(101, 22);
@@ -419,32 +445,6 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // btn_sortCust
-            // 
-            this.btn_sortCust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_sortCust.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_sortCust.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sortCust.Location = new System.Drawing.Point(333, 8);
-            this.btn_sortCust.Name = "btn_sortCust";
-            this.btn_sortCust.Size = new System.Drawing.Size(100, 26);
-            this.btn_sortCust.TabIndex = 10;
-            this.btn_sortCust.Text = "Customers";
-            this.btn_sortCust.UseVisualStyleBackColor = false;
-            this.btn_sortCust.Click += new System.EventHandler(this.btn_sortCust_Click);
-            // 
-            // btn_sortEmp
-            // 
-            this.btn_sortEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.btn_sortEmp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_sortEmp.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sortEmp.Location = new System.Drawing.Point(458, 8);
-            this.btn_sortEmp.Name = "btn_sortEmp";
-            this.btn_sortEmp.Size = new System.Drawing.Size(100, 26);
-            this.btn_sortEmp.TabIndex = 11;
-            this.btn_sortEmp.Text = "Employees";
-            this.btn_sortEmp.UseVisualStyleBackColor = false;
-            this.btn_sortEmp.Click += new System.EventHandler(this.btn_sortEmp_Click);
-            // 
             // Frm_A_ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,7 +469,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Decrypt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ShowPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Users)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -509,7 +509,7 @@
         private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.ComboBox cmb_Role;
-        private System.Windows.Forms.PictureBox pic_Decrypt;
+        private System.Windows.Forms.PictureBox pic_ShowPass;
         private System.Windows.Forms.Button btn_sortCust;
         private System.Windows.Forms.Button btn_sortEmp;
     }

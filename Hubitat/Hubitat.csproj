@@ -79,6 +79,12 @@
     <Compile Include="Forms\Frm_A_ManageUsers.Designer.cs">
       <DependentUpon>Frm_A_ManageUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Frm_ManagePets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_ManagePets.Designer.cs">
+      <DependentUpon>Frm_ManagePets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Frm_Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_A_ManageUsers.resx">
       <DependentUpon>Frm_A_ManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_ManagePets.resx">
+      <DependentUpon>Frm_ManagePets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Registration.resx">
       <DependentUpon>Frm_Registration.cs</DependentUpon>

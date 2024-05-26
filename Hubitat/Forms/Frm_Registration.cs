@@ -151,7 +151,7 @@ namespace Hubitat.Forms
 
         private void hidden_Click(object sender, EventArgs e)
         {
-            userRepo.CreateAdm("Owner", "percy250", "EMPLOYEE", "Percimel", "Vargas", "percyHub250@gmail.com", "09724226243");
+            //userRepo.CreateAdm("Owner", "percy250", "EMPLOYEE", "Percimel", "Vargas", "percyHub250@gmail.com", "09724226243");
         }
     }
 }

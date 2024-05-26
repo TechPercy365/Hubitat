@@ -51,7 +51,7 @@
             this.x_Exit = new System.Windows.Forms.Label();
             this.btn_manUsers = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btn_ManPets = new System.Windows.Forms.Button();
+            this.btn_manPets = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).BeginInit();
@@ -137,11 +137,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 62);
+            this.label3.Location = new System.Drawing.Point(13, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 12);
+            this.label3.Size = new System.Drawing.Size(49, 12);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Transactions";
+            this.label3.Text = "Reports";
             // 
             // pic_Transactions
             // 
@@ -283,7 +283,7 @@
             this.btn_manUsers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_manUsers.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manUsers.ForeColor = System.Drawing.Color.Black;
-            this.btn_manUsers.Location = new System.Drawing.Point(133, 182);
+            this.btn_manUsers.Location = new System.Drawing.Point(142, 165);
             this.btn_manUsers.Name = "btn_manUsers";
             this.btn_manUsers.Size = new System.Drawing.Size(195, 61);
             this.btn_manUsers.TabIndex = 8;
@@ -302,19 +302,18 @@
             this.pictureBox7.TabIndex = 12;
             this.pictureBox7.TabStop = false;
             // 
-            // btn_ManPets
+            // btn_manPets
             // 
-            this.btn_ManPets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.btn_ManPets.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_ManPets.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ManPets.ForeColor = System.Drawing.Color.Black;
-            this.btn_ManPets.Location = new System.Drawing.Point(133, 279);
-            this.btn_ManPets.Name = "btn_ManPets";
-            this.btn_ManPets.Size = new System.Drawing.Size(195, 61);
-            this.btn_ManPets.TabIndex = 8;
-            this.btn_ManPets.Text = "Manage Pets";
-            this.btn_ManPets.UseVisualStyleBackColor = false;
-            this.btn_ManPets.Click += new System.EventHandler(this.btn_manUsers_Click);
+            this.btn_manPets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.btn_manPets.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_manPets.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_manPets.Location = new System.Drawing.Point(142, 262);
+            this.btn_manPets.Name = "btn_manPets";
+            this.btn_manPets.Size = new System.Drawing.Size(195, 61);
+            this.btn_manPets.TabIndex = 13;
+            this.btn_manPets.Text = "Manage Pets";
+            this.btn_manPets.UseVisualStyleBackColor = false;
+            this.btn_manPets.Click += new System.EventHandler(this.btn_manPets_Click);
             // 
             // Frm_AdminDashboard
             // 
@@ -322,8 +321,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(752, 421);
+            this.Controls.Add(this.btn_manPets);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.btn_ManPets);
             this.Controls.Add(this.btn_manUsers);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
@@ -379,6 +378,6 @@
         private System.Windows.Forms.Label x_Exit;
         private System.Windows.Forms.Button btn_manUsers;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button btn_ManPets;
+        private System.Windows.Forms.Button btn_manPets;
     }
 }

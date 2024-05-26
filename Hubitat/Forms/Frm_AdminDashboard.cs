@@ -28,6 +28,10 @@ namespace Hubitat.Forms
             this.Hide();
         }
 
-        
+        private void btn_manPets_Click(object sender, EventArgs e)
+        {
+            new Frm_ManagePets().Show();
+            this.Hide();
+        }
     }
 }
