@@ -39,20 +39,24 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Back = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgv_rent = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btn_Done = new System.Windows.Forms.Button();
+            this.txt_Amount = new System.Windows.Forms.TextBox();
+            this.dgv_butPet = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_CusName = new System.Windows.Forms.Label();
+            this.lbl_Email = new System.Windows.Forms.Label();
+            this.lbl_PetName = new System.Windows.Forms.Label();
+            this.lbl_Species = new System.Windows.Forms.Label();
+            this.lbl_Price = new System.Windows.Forms.Label();
+            this.lbl_Amount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_rent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -107,9 +111,9 @@
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(140, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 16);
+            this.label2.Size = new System.Drawing.Size(62, 16);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Buy Condominium";
+            this.label2.Text = "Buy Pet";
             // 
             // label_Home
             // 
@@ -132,9 +136,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
             this.label5.Location = new System.Drawing.Point(82, 37);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(308, 38);
+            this.label5.Size = new System.Drawing.Size(141, 38);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Buy Condominium";
+            this.label5.Text = "Buy Pet";
             // 
             // pictureBox1
             // 
@@ -164,95 +168,155 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.dgv_rent);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.dgv_butPet);
             this.panel2.Location = new System.Drawing.Point(12, 142);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(728, 267);
             this.panel2.TabIndex = 16;
             // 
-            // button1
+            // btn_Done
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(550, 213);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 39);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Done";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Done.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.btn_Done.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Done.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Done.ForeColor = System.Drawing.Color.Black;
+            this.btn_Done.Location = new System.Drawing.Point(248, 209);
+            this.btn_Done.Name = "btn_Done";
+            this.btn_Done.Size = new System.Drawing.Size(93, 29);
+            this.btn_Done.TabIndex = 15;
+            this.btn_Done.Text = "Done";
+            this.btn_Done.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txt_Amount
             // 
-            this.textBox2.Location = new System.Drawing.Point(185, 226);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 20);
-            this.textBox2.TabIndex = 5;
+            this.txt_Amount.Location = new System.Drawing.Point(113, 154);
+            this.txt_Amount.Name = "txt_Amount";
+            this.txt_Amount.Size = new System.Drawing.Size(64, 20);
+            this.txt_Amount.TabIndex = 5;
             // 
-            // textBox1
+            // dgv_butPet
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 226);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // dgv_rent
-            // 
-            this.dgv_rent.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv_rent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_rent.Location = new System.Drawing.Point(4, 30);
-            this.dgv_rent.Name = "dgv_rent";
-            this.dgv_rent.Size = new System.Drawing.Size(481, 169);
-            this.dgv_rent.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(182, 207);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Enter Amount to Pay:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Total Cost Amount";
+            this.dgv_butPet.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_butPet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_butPet.Location = new System.Drawing.Point(379, 32);
+            this.dgv_butPet.Name = "dgv_butPet";
+            this.dgv_butPet.Size = new System.Drawing.Size(342, 169);
+            this.dgv_butPet.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(376, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 16);
+            this.label1.Size = new System.Drawing.Size(211, 16);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Select a Condo you want to buy:";
+            this.label1.Text = "Select a Pet you want to buy:";
             // 
-            // pictureBox3
+            // label3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBox3.Location = new System.Drawing.Point(491, 10);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(228, 189);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label3.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(103, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 16);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Transaction Info:";
             // 
-            // Frm_R_BuyCondo
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.lbl_Amount);
+            this.panel3.Controls.Add(this.btn_Done);
+            this.panel3.Controls.Add(this.lbl_Price);
+            this.panel3.Controls.Add(this.txt_Amount);
+            this.panel3.Controls.Add(this.lbl_Species);
+            this.panel3.Controls.Add(this.lbl_PetName);
+            this.panel3.Controls.Add(this.lbl_Email);
+            this.panel3.Controls.Add(this.lbl_CusName);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(13, 13);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(344, 241);
+            this.panel3.TabIndex = 17;
+            // 
+            // lbl_CusName
+            // 
+            this.lbl_CusName.AutoSize = true;
+            this.lbl_CusName.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_CusName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_CusName.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CusName.Location = new System.Drawing.Point(3, 34);
+            this.lbl_CusName.Name = "lbl_CusName";
+            this.lbl_CusName.Size = new System.Drawing.Size(50, 16);
+            this.lbl_CusName.TabIndex = 17;
+            this.lbl_CusName.Text = "Name: ";
+            // 
+            // lbl_Email
+            // 
+            this.lbl_Email.AutoSize = true;
+            this.lbl_Email.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Email.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_Email.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Email.Location = new System.Drawing.Point(3, 59);
+            this.lbl_Email.Name = "lbl_Email";
+            this.lbl_Email.Size = new System.Drawing.Size(46, 16);
+            this.lbl_Email.TabIndex = 18;
+            this.lbl_Email.Text = "Email:";
+            // 
+            // lbl_PetName
+            // 
+            this.lbl_PetName.AutoSize = true;
+            this.lbl_PetName.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_PetName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_PetName.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PetName.Location = new System.Drawing.Point(3, 84);
+            this.lbl_PetName.Name = "lbl_PetName";
+            this.lbl_PetName.Size = new System.Drawing.Size(70, 16);
+            this.lbl_PetName.TabIndex = 19;
+            this.lbl_PetName.Text = "Pet Name:";
+            // 
+            // lbl_Species
+            // 
+            this.lbl_Species.AutoSize = true;
+            this.lbl_Species.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Species.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_Species.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Species.Location = new System.Drawing.Point(3, 109);
+            this.lbl_Species.Name = "lbl_Species";
+            this.lbl_Species.Size = new System.Drawing.Size(57, 16);
+            this.lbl_Species.TabIndex = 20;
+            this.lbl_Species.Text = "Species:";
+            // 
+            // lbl_Price
+            // 
+            this.lbl_Price.AutoSize = true;
+            this.lbl_Price.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Price.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_Price.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Price.Location = new System.Drawing.Point(3, 134);
+            this.lbl_Price.Name = "lbl_Price";
+            this.lbl_Price.Size = new System.Drawing.Size(43, 16);
+            this.lbl_Price.TabIndex = 21;
+            this.lbl_Price.Text = "Price:";
+            // 
+            // lbl_Amount
+            // 
+            this.lbl_Amount.AutoSize = true;
+            this.lbl_Amount.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Amount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_Amount.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Amount.Location = new System.Drawing.Point(3, 158);
+            this.lbl_Amount.Name = "lbl_Amount";
+            this.lbl_Amount.Size = new System.Drawing.Size(104, 16);
+            this.lbl_Amount.TabIndex = 22;
+            this.lbl_Amount.Text = "Amount to Pay:";
+            // 
+            // Frm_C_BuyPets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,7 +332,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_R_BuyCondo";
+            this.Name = "Frm_C_BuyPets";
             this.Text = "Frm_T_RentApartment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -276,8 +340,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_rent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,13 +360,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgv_rent;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgv_butPet;
+        private System.Windows.Forms.TextBox txt_Amount;
+        private System.Windows.Forms.Button btn_Done;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbl_Price;
+        private System.Windows.Forms.Label lbl_Species;
+        private System.Windows.Forms.Label lbl_PetName;
+        private System.Windows.Forms.Label lbl_Email;
+        private System.Windows.Forms.Label lbl_CusName;
+        private System.Windows.Forms.Label lbl_Amount;
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AdminDashboard));
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,17 +68,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
-            // label5
+            // txtWelcome
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.label5.Location = new System.Drawing.Point(91, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(343, 38);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Welcome, Employee";
+            this.txtWelcome.AutoSize = true;
+            this.txtWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.txtWelcome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.txtWelcome.Location = new System.Drawing.Point(91, 48);
+            this.txtWelcome.Name = "txtWelcome";
+            this.txtWelcome.Size = new System.Drawing.Size(343, 38);
+            this.txtWelcome.TabIndex = 7;
+            this.txtWelcome.Text = "Welcome, Employee";
             // 
             // panel2
             // 
@@ -324,7 +324,7 @@
             this.Controls.Add(this.btn_manPets);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_manUsers);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtWelcome);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -356,7 +356,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label txtWelcome;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;

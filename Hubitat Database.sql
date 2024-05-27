@@ -80,6 +80,11 @@ petStatus as 'Pet Status', petPrice as 'Pet Price'
 FROM [Pets]
 WHERE petStatus = 'SOLD'
 
+CREATE VIEW vw_BuyPet AS
+SELECT petID as 'Pet ID', petImage as 'Pet Image'
+FROM [Pets]
+WHERE petStatus = 'AVAILABLE'
+
 
 ---<<<<<<<<<<<   STORED PROCEDURES   >>>>>>>>>>>>---
 CREATE PROCEDURE sp_UserUpdate

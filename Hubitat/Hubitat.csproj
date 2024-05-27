@@ -130,6 +130,9 @@
     <Compile Include="Model\vw_AllPets.cs">
       <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\vw_BuyPet.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\vw_Customers.cs">
       <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>

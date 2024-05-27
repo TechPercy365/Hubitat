@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hubitatDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hubitatDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Pets">
           <Key>
             <PropertyRef Name="petID" />
@@ -66,6 +66,15 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_AllPets' does not have a primary 
           <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Pet Status" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Pet Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hubitatDB.dbo.vw_BuyPet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_BuyPet">
+          <Key>
+            <PropertyRef Name="Pet ID" />
+          </Key>
+          <Property Name="Pet ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Pet Image" Type="image" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'hubitatDB.dbo.vw_Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -203,6 +212,12 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
     [vw_AllPets].[Pet Price] AS [Pet Price]
     FROM [dbo].[vw_AllPets] AS [vw_AllPets]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_BuyPet" EntityType="Self.vw_BuyPet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_BuyPet].[Pet ID] AS [Pet ID], 
+    [vw_BuyPet].[Pet Image] AS [Pet Image]
+    FROM [dbo].[vw_BuyPet] AS [vw_BuyPet]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_Customers" EntityType="Self.vw_Customers" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_Customers].[User ID] AS [User ID], 
@@ -266,169 +281,11 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
     FROM [dbo].[vw_Users] AS [vw_Users]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hubitatDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Pets">
-          <Key>
-            <PropertyRef Name="petID" />
-          </Key>
-          <Property Name="petID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="petName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="petSpecies" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="petBreed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="petAge" Type="Int32" Nullable="false" />
-          <Property Name="petGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="petStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="petPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="petImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Transactions">
-          <Key>
-            <PropertyRef Name="transactionID" />
-          </Key>
-          <Property Name="transactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="userID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="petID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="totalPayment" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="amountCustPay" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="payChange" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="transDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="userID" />
-          </Key>
-          <Property Name="userID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="userPass" Type="Binary" MaxLength="255" FixedLength="false" Nullable="false" />
-          <Property Name="userType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="phoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="dateCreated" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="vw_AllPets">
-          <Key>
-            <PropertyRef Name="Pet_ID" />
-            <PropertyRef Name="Species" />
-            <PropertyRef Name="Breed" />
-            <PropertyRef Name="Pet_Age" />
-            <PropertyRef Name="Gender" />
-            <PropertyRef Name="Pet_Status" />
-            <PropertyRef Name="Pet_Price" />
-          </Key>
-          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Pet_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Species" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Breed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Age" Type="Int32" Nullable="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vw_Customers">
-          <Key>
-            <PropertyRef Name="User_ID" />
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Role_Type" />
-            <PropertyRef Name="Email" />
-          </Key>
-          <Property Name="User_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Role_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Account_Date_Created" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="vw_Employees">
-          <Key>
-            <PropertyRef Name="User_ID" />
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Role_Type" />
-            <PropertyRef Name="Email" />
-          </Key>
-          <Property Name="User_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Role_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Account_Date_Created" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="vw_PetAvailable">
-          <Key>
-            <PropertyRef Name="Pet_ID" />
-            <PropertyRef Name="Species" />
-            <PropertyRef Name="Breed" />
-            <PropertyRef Name="Pet_Age" />
-            <PropertyRef Name="Gender" />
-            <PropertyRef Name="Pet_Status" />
-            <PropertyRef Name="Pet_Price" />
-          </Key>
-          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Pet_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Species" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Breed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Age" Type="Int32" Nullable="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vw_PetSold">
-          <Key>
-            <PropertyRef Name="Pet_ID" />
-            <PropertyRef Name="Species" />
-            <PropertyRef Name="Breed" />
-            <PropertyRef Name="Pet_Age" />
-            <PropertyRef Name="Gender" />
-            <PropertyRef Name="Pet_Status" />
-            <PropertyRef Name="Pet_Price" />
-          </Key>
-          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Pet_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Species" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Breed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Age" Type="Int32" Nullable="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pet_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vw_Users">
-          <Key>
-            <PropertyRef Name="User_ID" />
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Role_Type" />
-            <PropertyRef Name="Email" />
-          </Key>
-          <Property Name="User_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Role_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Account_Date_Created" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityContainer Name="hubitatDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Pets" EntityType="Self.Pets" />
-          <EntitySet Name="Transactions" EntityType="Self.Transactions" />
-          <EntitySet Name="Users" EntityType="Self.Users" />
-          <EntitySet Name="vw_AllPets" EntityType="Self.vw_AllPets" />
-          <EntitySet Name="vw_Customers" EntityType="Self.vw_Customers" />
-          <EntitySet Name="vw_Employees" EntityType="Self.vw_Employees" />
-          <EntitySet Name="vw_PetAvailable" EntityType="Self.vw_PetAvailable" />
-          <EntitySet Name="vw_PetSold" EntityType="Self.vw_PetSold" />
-          <EntitySet Name="vw_Users" EntityType="Self.vw_Users" />
           <FunctionImport Name="sp_PetUpdate">
             <Parameter Name="petID" Mode="In" Type="String" />
             <Parameter Name="petName" Mode="In" Type="String" />
@@ -450,145 +307,318 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
             <Parameter Name="phoneNum" Mode="In" Type="String" />
             <Parameter Name="dateCreated" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="Pets" EntityType="hubitatDBModel.Pets" />
+          <EntitySet Name="Transactions" EntityType="hubitatDBModel.Transactions" />
+          <EntitySet Name="Users" EntityType="hubitatDBModel.Users" />
+          <EntitySet Name="vw_AllPets" EntityType="hubitatDBModel.vw_AllPets" />
+          <EntitySet Name="vw_BuyPet" EntityType="hubitatDBModel.vw_BuyPet" />
+          <EntitySet Name="vw_Customers" EntityType="hubitatDBModel.vw_Customers" />
+          <EntitySet Name="vw_Employees" EntityType="hubitatDBModel.vw_Employees" />
+          <EntitySet Name="vw_PetAvailable" EntityType="hubitatDBModel.vw_PetAvailable" />
+          <EntitySet Name="vw_PetSold" EntityType="hubitatDBModel.vw_PetSold" />
+          <EntitySet Name="vw_Users" EntityType="hubitatDBModel.vw_Users" />
         </EntityContainer>
+        <EntityType Name="Pets">
+          <Key>
+            <PropertyRef Name="petID" />
+          </Key>
+          <Property Name="petID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="petName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="petSpecies" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="petBreed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="petAge" Type="Int32" Nullable="false" />
+          <Property Name="petGender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="petStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="petPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="petImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="transactionID" />
+          </Key>
+          <Property Name="transactionID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="petID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="totalPayment" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="amountCustPay" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="payChange" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="transDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userPass" Type="Binary" Nullable="false" MaxLength="255" FixedLength="false" />
+          <Property Name="userType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vw_AllPets">
+          <Key>
+            <PropertyRef Name="Pet_ID" />
+            <PropertyRef Name="Species" />
+            <PropertyRef Name="Breed" />
+            <PropertyRef Name="Pet_Age" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Pet_Status" />
+            <PropertyRef Name="Pet_Price" />
+          </Key>
+          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Pet_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Species" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Breed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Age" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="vw_BuyPet">
+          <Key>
+            <PropertyRef Name="Pet_ID" />
+          </Key>
+          <Property Name="Pet_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vw_Customers">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Role_Type" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="User_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Account_Date_Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vw_Employees">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Role_Type" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="User_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Account_Date_Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vw_PetAvailable">
+          <Key>
+            <PropertyRef Name="Pet_ID" />
+            <PropertyRef Name="Species" />
+            <PropertyRef Name="Breed" />
+            <PropertyRef Name="Pet_Age" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Pet_Status" />
+            <PropertyRef Name="Pet_Price" />
+          </Key>
+          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Pet_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Species" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Breed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Age" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="vw_PetSold">
+          <Key>
+            <PropertyRef Name="Pet_ID" />
+            <PropertyRef Name="Species" />
+            <PropertyRef Name="Breed" />
+            <PropertyRef Name="Pet_Age" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Pet_Status" />
+            <PropertyRef Name="Pet_Price" />
+          </Key>
+          <Property Name="Pet_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Pet_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Species" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Breed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Age" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="vw_Users">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Role_Type" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="User_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Account_Date_Created" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="hubitatDBModelStoreContainer" CdmEntityContainer="hubitatDBEntities">
+          <FunctionImportMapping FunctionImportName="sp_PetUpdate" FunctionName="hubitatDBModel.Store.sp_PetUpdate" />
+          <FunctionImportMapping FunctionImportName="sp_UserUpdate" FunctionName="hubitatDBModel.Store.sp_UserUpdate" />
           <EntitySetMapping Name="Pets">
             <EntityTypeMapping TypeName="hubitatDBModel.Pets">
               <MappingFragment StoreEntitySet="Pets">
-                <ScalarProperty Name="petID" ColumnName="petID" />
-                <ScalarProperty Name="petName" ColumnName="petName" />
-                <ScalarProperty Name="petSpecies" ColumnName="petSpecies" />
-                <ScalarProperty Name="petBreed" ColumnName="petBreed" />
-                <ScalarProperty Name="petAge" ColumnName="petAge" />
-                <ScalarProperty Name="petGender" ColumnName="petGender" />
-                <ScalarProperty Name="petStatus" ColumnName="petStatus" />
-                <ScalarProperty Name="petPrice" ColumnName="petPrice" />
                 <ScalarProperty Name="petImage" ColumnName="petImage" />
+                <ScalarProperty Name="petPrice" ColumnName="petPrice" />
+                <ScalarProperty Name="petStatus" ColumnName="petStatus" />
+                <ScalarProperty Name="petGender" ColumnName="petGender" />
+                <ScalarProperty Name="petAge" ColumnName="petAge" />
+                <ScalarProperty Name="petBreed" ColumnName="petBreed" />
+                <ScalarProperty Name="petSpecies" ColumnName="petSpecies" />
+                <ScalarProperty Name="petName" ColumnName="petName" />
+                <ScalarProperty Name="petID" ColumnName="petID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="hubitatDBModel.Transactions">
               <MappingFragment StoreEntitySet="Transactions">
-                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="petID" ColumnName="petID" />
-                <ScalarProperty Name="totalPayment" ColumnName="totalPayment" />
-                <ScalarProperty Name="amountCustPay" ColumnName="amountCustPay" />
-                <ScalarProperty Name="payChange" ColumnName="payChange" />
                 <ScalarProperty Name="transDate" ColumnName="transDate" />
+                <ScalarProperty Name="payChange" ColumnName="payChange" />
+                <ScalarProperty Name="amountCustPay" ColumnName="amountCustPay" />
+                <ScalarProperty Name="totalPayment" ColumnName="totalPayment" />
+                <ScalarProperty Name="petID" ColumnName="petID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="hubitatDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
-                <ScalarProperty Name="userPass" ColumnName="userPass" />
-                <ScalarProperty Name="userType" ColumnName="userType" />
-                <ScalarProperty Name="firstName" ColumnName="firstName" />
-                <ScalarProperty Name="lastName" ColumnName="lastName" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="phoneNum" ColumnName="phoneNum" />
                 <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="phoneNum" ColumnName="phoneNum" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="userPass" ColumnName="userPass" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_AllPets">
             <EntityTypeMapping TypeName="hubitatDBModel.vw_AllPets">
               <MappingFragment StoreEntitySet="vw_AllPets">
+                <ScalarProperty Name="Pet_Price" ColumnName="Pet Price" />
+                <ScalarProperty Name="Pet_Status" ColumnName="Pet Status" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Pet_Age" ColumnName="Pet Age" />
+                <ScalarProperty Name="Breed" ColumnName="Breed" />
+                <ScalarProperty Name="Species" ColumnName="Species" />
+                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
+                <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
+                <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_BuyPet">
+            <EntityTypeMapping TypeName="hubitatDBModel.vw_BuyPet">
+              <MappingFragment StoreEntitySet="vw_BuyPet">
                 <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
                 <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
-                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
-                <ScalarProperty Name="Species" ColumnName="Species" />
-                <ScalarProperty Name="Breed" ColumnName="Breed" />
-                <ScalarProperty Name="Pet_Age" ColumnName="Pet Age" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Pet_Status" ColumnName="Pet Status" />
-                <ScalarProperty Name="Pet_Price" ColumnName="Pet Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_Customers">
             <EntityTypeMapping TypeName="hubitatDBModel.vw_Customers">
               <MappingFragment StoreEntitySet="vw_Customers">
-                <ScalarProperty Name="User_ID" ColumnName="User ID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
-                <ScalarProperty Name="First_Name" ColumnName="First Name" />
-                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
                 <ScalarProperty Name="Account_Date_Created" ColumnName="Account Date Created" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="User_ID" ColumnName="User ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_Employees">
             <EntityTypeMapping TypeName="hubitatDBModel.vw_Employees">
               <MappingFragment StoreEntitySet="vw_Employees">
-                <ScalarProperty Name="User_ID" ColumnName="User ID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
-                <ScalarProperty Name="First_Name" ColumnName="First Name" />
-                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
                 <ScalarProperty Name="Account_Date_Created" ColumnName="Account Date Created" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="User_ID" ColumnName="User ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_PetAvailable">
             <EntityTypeMapping TypeName="hubitatDBModel.vw_PetAvailable">
               <MappingFragment StoreEntitySet="vw_PetAvailable">
-                <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
-                <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
-                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
-                <ScalarProperty Name="Species" ColumnName="Species" />
-                <ScalarProperty Name="Breed" ColumnName="Breed" />
-                <ScalarProperty Name="Pet_Age" ColumnName="Pet Age" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Pet_Status" ColumnName="Pet Status" />
                 <ScalarProperty Name="Pet_Price" ColumnName="Pet Price" />
+                <ScalarProperty Name="Pet_Status" ColumnName="Pet Status" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Pet_Age" ColumnName="Pet Age" />
+                <ScalarProperty Name="Breed" ColumnName="Breed" />
+                <ScalarProperty Name="Species" ColumnName="Species" />
+                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
+                <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
+                <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_PetSold">
             <EntityTypeMapping TypeName="hubitatDBModel.vw_PetSold">
               <MappingFragment StoreEntitySet="vw_PetSold">
-                <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
-                <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
-                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
-                <ScalarProperty Name="Species" ColumnName="Species" />
-                <ScalarProperty Name="Breed" ColumnName="Breed" />
-                <ScalarProperty Name="Pet_Age" ColumnName="Pet Age" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Pet_Status" ColumnName="Pet Status" />
                 <ScalarProperty Name="Pet_Price" ColumnName="Pet Price" />
+                <ScalarProperty Name="Pet_Status" ColumnName="Pet Status" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Pet_Age" ColumnName="Pet Age" />
+                <ScalarProperty Name="Breed" ColumnName="Breed" />
+                <ScalarProperty Name="Species" ColumnName="Species" />
+                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
+                <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
+                <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_Users">
             <EntityTypeMapping TypeName="hubitatDBModel.vw_Users">
               <MappingFragment StoreEntitySet="vw_Users">
-                <ScalarProperty Name="User_ID" ColumnName="User ID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
-                <ScalarProperty Name="First_Name" ColumnName="First Name" />
-                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
                 <ScalarProperty Name="Account_Date_Created" ColumnName="Account Date Created" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Role_Type" ColumnName="Role/Type" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="User_ID" ColumnName="User ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_PetUpdate" FunctionName="hubitatDBModel.Store.sp_PetUpdate" />
-          <FunctionImportMapping FunctionImportName="sp_UserUpdate" FunctionName="hubitatDBModel.Store.sp_UserUpdate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

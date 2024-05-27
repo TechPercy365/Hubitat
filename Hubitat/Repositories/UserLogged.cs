@@ -20,5 +20,10 @@ namespace Hubitat.Repositories
                 _instance = new UserLogged();
             return _instance;
         }
+
+        public void SetUser(Users user)
+        {
+            User = user;             
+        }
     }
 }

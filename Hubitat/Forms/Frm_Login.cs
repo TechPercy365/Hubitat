@@ -33,19 +33,20 @@ namespace Hubitat
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (String.IsNullOrEmpty(txt_Username.Text))
-            {
-                errorProvider1.Clear();
+            {                
                 errorProvider1.SetError(txt_Username, "Empty Field. Please Fill-in");
                 return;
             }
             if (String.IsNullOrEmpty(txt_Password.Text))
-            {
-                errorProvider1.Clear();
+            {                
                 errorProvider1.SetError(txt_Password, "Empty Field. Please Fill-in");
                 return;
             }
 
+            // Veriffying the Account based on the inputted username and password
             if (VerifyAccount(txt_Username.Text, txt_Password.Text)) {
 
                 string usertype = GetUserType(txt_Username.Text);                                
@@ -90,7 +91,7 @@ namespace Hubitat
                 {
                     // Hash the password inputted by the user
                     byte[] hashedPasswordInput = HashPassword(pass);
-                    UserLogged.GetInstance().User = user;
+                    UserLogged.GetInstance().SetUser(user);
                     // Compare hashed passwords
                     return hashedPasswordInput.SequenceEqual(user.userPass);
 

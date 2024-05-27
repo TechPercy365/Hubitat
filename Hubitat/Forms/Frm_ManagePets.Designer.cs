@@ -39,6 +39,27 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.picChooseImg = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPAge = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPBreed = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPSpecies = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picShowPet = new System.Windows.Forms.PictureBox();
+            this.dgvPets = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.picDeletePet = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.picAddPet = new System.Windows.Forms.PictureBox();
             this.btnSortSold = new System.Windows.Forms.Button();
@@ -46,44 +67,19 @@
             this.btnSortAll = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.picEditPet = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.picDeletePet = new System.Windows.Forms.PictureBox();
-            this.dgvPets = new System.Windows.Forms.DataGridView();
-            this.picShowPet = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPName = new System.Windows.Forms.TextBox();
-            this.txtPSpecies = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPBreed = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPAge = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbGender = new System.Windows.Forms.ComboBox();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.picChooseImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picChooseImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowPet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPets)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeletePet)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAddPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picEditPet)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeletePet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowPet)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picChooseImg)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -198,7 +194,6 @@
             this.panel2.Controls.Add(this.picShowPet);
             this.panel2.Controls.Add(this.dgvPets);
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.btnSortSold);
             this.panel2.Controls.Add(this.btnSortAvailable);
@@ -210,11 +205,231 @@
             this.panel2.Size = new System.Drawing.Size(738, 273);
             this.panel2.TabIndex = 24;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.panel6.Controls.Add(this.picChooseImg);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.cmbStatus);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.cmbGender);
+            this.panel6.Controls.Add(this.txtPrice);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.txtPAge);
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.txtPBreed);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Controls.Add(this.txtPSpecies);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.txtPName);
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Location = new System.Drawing.Point(8, 201);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(720, 66);
+            this.panel6.TabIndex = 17;
+            // 
+            // picChooseImg
+            // 
+            this.picChooseImg.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.picChooseImg.Image = ((System.Drawing.Image)(resources.GetObject("picChooseImg.Image")));
+            this.picChooseImg.Location = new System.Drawing.Point(613, 23);
+            this.picChooseImg.Name = "picChooseImg";
+            this.picChooseImg.Size = new System.Drawing.Size(45, 35);
+            this.picChooseImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picChooseImg.TabIndex = 16;
+            this.picChooseImg.TabStop = false;
+            this.picChooseImg.Click += new System.EventHandler(this.picChooseImg_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(610, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 16);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Image:";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "AVAILABLE",
+            "SOLD"});
+            this.cmbStatus.Location = new System.Drawing.Point(512, 23);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(62, 22);
+            this.cmbStatus.TabIndex = 14;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(511, 4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 16);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Status:";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "MALE",
+            "FEMALE"});
+            this.cmbGender.Location = new System.Drawing.Point(367, 23);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(62, 22);
+            this.cmbGender.TabIndex = 12;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.txtPrice.Location = new System.Drawing.Point(440, 23);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(62, 21);
+            this.txtPrice.TabIndex = 11;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(437, 4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 16);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Price:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(366, 4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Gender:";
+            // 
+            // txtPAge
+            // 
+            this.txtPAge.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.txtPAge.Location = new System.Drawing.Point(317, 23);
+            this.txtPAge.Name = "txtPAge";
+            this.txtPAge.Size = new System.Drawing.Size(43, 21);
+            this.txtPAge.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(314, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Age:";
+            // 
+            // txtPBreed
+            // 
+            this.txtPBreed.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.txtPBreed.Location = new System.Drawing.Point(211, 23);
+            this.txtPBreed.Name = "txtPBreed";
+            this.txtPBreed.Size = new System.Drawing.Size(99, 21);
+            this.txtPBreed.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(208, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Breed:";
+            // 
+            // txtPSpecies
+            // 
+            this.txtPSpecies.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.txtPSpecies.Location = new System.Drawing.Point(115, 23);
+            this.txtPSpecies.Name = "txtPSpecies";
+            this.txtPSpecies.Size = new System.Drawing.Size(87, 21);
+            this.txtPSpecies.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(112, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Species:";
+            // 
+            // txtPName
+            // 
+            this.txtPName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPName.Location = new System.Drawing.Point(7, 23);
+            this.txtPName.Name = "txtPName";
+            this.txtPName.Size = new System.Drawing.Size(99, 21);
+            this.txtPName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Pet Name:";
+            // 
+            // picShowPet
+            // 
+            this.picShowPet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.picShowPet.Location = new System.Drawing.Point(549, 61);
+            this.picShowPet.Name = "picShowPet";
+            this.picShowPet.Size = new System.Drawing.Size(180, 133);
+            this.picShowPet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picShowPet.TabIndex = 16;
+            this.picShowPet.TabStop = false;
+            // 
+            // dgvPets
+            // 
+            this.dgvPets.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.dgvPets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPets.Location = new System.Drawing.Point(8, 61);
+            this.dgvPets.Name = "dgvPets";
+            this.dgvPets.Size = new System.Drawing.Size(534, 133);
+            this.dgvPets.TabIndex = 15;
+            this.dgvPets.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellClick);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.panel5.Controls.Add(this.picDeletePet);
+            this.panel5.Location = new System.Drawing.Point(649, 9);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(65, 36);
+            this.panel5.TabIndex = 14;
+            // 
+            // picDeletePet
+            // 
+            this.picDeletePet.Image = ((System.Drawing.Image)(resources.GetObject("picDeletePet.Image")));
+            this.picDeletePet.Location = new System.Drawing.Point(17, 3);
+            this.picDeletePet.Name = "picDeletePet";
+            this.picDeletePet.Size = new System.Drawing.Size(30, 30);
+            this.picDeletePet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDeletePet.TabIndex = 0;
+            this.picDeletePet.TabStop = false;
+            this.picDeletePet.Click += new System.EventHandler(this.picDeletePet_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
             this.panel3.Controls.Add(this.picAddPet);
-            this.panel3.Location = new System.Drawing.Point(475, 9);
+            this.panel3.Location = new System.Drawing.Point(560, 9);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(65, 36);
             this.panel3.TabIndex = 13;
@@ -228,6 +443,7 @@
             this.picAddPet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAddPet.TabIndex = 0;
             this.picAddPet.TabStop = false;
+            this.picAddPet.Click += new System.EventHandler(this.picAddPet_Click);
             // 
             // btnSortSold
             // 
@@ -289,235 +505,6 @@
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.panel4.Controls.Add(this.picEditPet);
-            this.panel4.Location = new System.Drawing.Point(560, 9);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(65, 36);
-            this.panel4.TabIndex = 14;
-            // 
-            // picEditPet
-            // 
-            this.picEditPet.Image = ((System.Drawing.Image)(resources.GetObject("picEditPet.Image")));
-            this.picEditPet.Location = new System.Drawing.Point(17, 3);
-            this.picEditPet.Name = "picEditPet";
-            this.picEditPet.Size = new System.Drawing.Size(30, 30);
-            this.picEditPet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEditPet.TabIndex = 0;
-            this.picEditPet.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.panel5.Controls.Add(this.picDeletePet);
-            this.panel5.Location = new System.Drawing.Point(645, 9);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(65, 36);
-            this.panel5.TabIndex = 14;
-            // 
-            // picDeletePet
-            // 
-            this.picDeletePet.Image = ((System.Drawing.Image)(resources.GetObject("picDeletePet.Image")));
-            this.picDeletePet.Location = new System.Drawing.Point(17, 3);
-            this.picDeletePet.Name = "picDeletePet";
-            this.picDeletePet.Size = new System.Drawing.Size(30, 30);
-            this.picDeletePet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picDeletePet.TabIndex = 0;
-            this.picDeletePet.TabStop = false;
-            // 
-            // dgvPets
-            // 
-            this.dgvPets.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.dgvPets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPets.Location = new System.Drawing.Point(8, 61);
-            this.dgvPets.Name = "dgvPets";
-            this.dgvPets.Size = new System.Drawing.Size(534, 133);
-            this.dgvPets.TabIndex = 15;
-            // 
-            // picShowPet
-            // 
-            this.picShowPet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.picShowPet.Location = new System.Drawing.Point(549, 61);
-            this.picShowPet.Name = "picShowPet";
-            this.picShowPet.Size = new System.Drawing.Size(180, 133);
-            this.picShowPet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picShowPet.TabIndex = 16;
-            this.picShowPet.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.panel6.Controls.Add(this.picChooseImg);
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.cmbStatus);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.cmbGender);
-            this.panel6.Controls.Add(this.txtPrice);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.txtPAge);
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.txtPBreed);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.txtPSpecies);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.txtPName);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Location = new System.Drawing.Point(8, 201);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(720, 66);
-            this.panel6.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Pet Name:";
-            // 
-            // txtPName
-            // 
-            this.txtPName.Location = new System.Drawing.Point(7, 23);
-            this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(99, 20);
-            this.txtPName.TabIndex = 1;
-            // 
-            // txtPSpecies
-            // 
-            this.txtPSpecies.Location = new System.Drawing.Point(115, 23);
-            this.txtPSpecies.Name = "txtPSpecies";
-            this.txtPSpecies.Size = new System.Drawing.Size(87, 20);
-            this.txtPSpecies.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(112, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Species:";
-            // 
-            // txtPBreed
-            // 
-            this.txtPBreed.Location = new System.Drawing.Point(211, 23);
-            this.txtPBreed.Name = "txtPBreed";
-            this.txtPBreed.Size = new System.Drawing.Size(99, 20);
-            this.txtPBreed.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(208, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Breed:";
-            // 
-            // txtPAge
-            // 
-            this.txtPAge.Location = new System.Drawing.Point(317, 23);
-            this.txtPAge.Name = "txtPAge";
-            this.txtPAge.Size = new System.Drawing.Size(43, 20);
-            this.txtPAge.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(314, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 16);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Age:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(366, 4);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 16);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Gender:";
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(440, 23);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(62, 20);
-            this.txtPrice.TabIndex = 11;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(437, 4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 16);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Price:";
-            // 
-            // cmbGender
-            // 
-            this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE"});
-            this.cmbGender.Location = new System.Drawing.Point(367, 23);
-            this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(62, 21);
-            this.cmbGender.TabIndex = 12;
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "AVAILABLE",
-            "SOLD"});
-            this.cmbStatus.Location = new System.Drawing.Point(512, 23);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(62, 21);
-            this.cmbStatus.TabIndex = 14;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(511, 4);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 16);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Status:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(610, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 16);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Image:";
-            // 
-            // picChooseImg
-            // 
-            this.picChooseImg.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.picChooseImg.Image = ((System.Drawing.Image)(resources.GetObject("picChooseImg.Image")));
-            this.picChooseImg.Location = new System.Drawing.Point(613, 23);
-            this.picChooseImg.Name = "picChooseImg";
-            this.picChooseImg.Size = new System.Drawing.Size(45, 35);
-            this.picChooseImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picChooseImg.TabIndex = 16;
-            this.picChooseImg.TabStop = false;
-            // 
             // Frm_ManagePets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,18 +529,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picAddPet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picEditPet)).EndInit();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picDeletePet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowPet)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picChooseImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowPet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPets)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picDeletePet)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAddPet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,8 +565,6 @@
         private System.Windows.Forms.PictureBox picAddPet;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox picDeletePet;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox picEditPet;
         private System.Windows.Forms.DataGridView dgvPets;
         private System.Windows.Forms.PictureBox picShowPet;
         private System.Windows.Forms.Panel panel6;

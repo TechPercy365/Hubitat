@@ -48,7 +48,7 @@
             this.pic_Home = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtWelcome = new System.Windows.Forms.Label();
             this.btn_buyPet = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -263,17 +263,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
+            // txtWelcome
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.label5.Location = new System.Drawing.Point(91, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(372, 38);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Welcome, Pet Parents";
+            this.txtWelcome.AutoSize = true;
+            this.txtWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.txtWelcome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.txtWelcome.Location = new System.Drawing.Point(91, 50);
+            this.txtWelcome.Name = "txtWelcome";
+            this.txtWelcome.Size = new System.Drawing.Size(372, 38);
+            this.txtWelcome.TabIndex = 4;
+            this.txtWelcome.Text = "Welcome, Pet Parents";
             // 
             // btn_buyPet
             // 
@@ -287,6 +287,7 @@
             this.btn_buyPet.TabIndex = 10;
             this.btn_buyPet.Text = "Buy Pet";
             this.btn_buyPet.UseVisualStyleBackColor = false;
+            this.btn_buyPet.Click += new System.EventHandler(this.btn_buyPet_Click);
             // 
             // pictureBox7
             // 
@@ -312,7 +313,7 @@
             this.button1.Text = "View Owned Pets";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // Frm_ResidentDashboard
+            // Frm_CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -322,13 +323,13 @@
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_buyPet);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtWelcome);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_ResidentDashboard";
-            this.Text = "Frm_TenantDashboard";
+            this.Name = "Frm_CustomerDashboard";
+            this.Text = "Hubitat";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -374,7 +375,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label txtWelcome;
         private System.Windows.Forms.Button btn_buyPet;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button button1;

@@ -31,6 +31,7 @@ namespace Hubitat.Model
         public virtual DbSet<Transactions> Transactions { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<vw_AllPets> vw_AllPets { get; set; }
+        public virtual DbSet<vw_BuyPet> vw_BuyPet { get; set; }
         public virtual DbSet<vw_Customers> vw_Customers { get; set; }
         public virtual DbSet<vw_Employees> vw_Employees { get; set; }
         public virtual DbSet<vw_PetAvailable> vw_PetAvailable { get; set; }

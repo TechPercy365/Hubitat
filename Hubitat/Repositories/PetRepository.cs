@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Hubitat.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Hubitat.Repositories
 {
@@ -74,16 +77,16 @@ namespace Hubitat.Repositories
         }
 
 
-        public ErrorCode RemoveApartment(string apID)
+        public ErrorCode RemovePet(string pID)
         {
             ErrorCode retValue = ErrorCode.Error;
             try
             {
                 using (db = new hubitatDBEntities())
                 {
-                    Pets apmt = db.Pets.Where(u => u.petID == apID).FirstOrDefault();
+                    Pets rmpet = db.Pets.Where(u => u.petID == pID).FirstOrDefault();
                     // Remove the user
-                    db.Pets.Remove(apmt);
+                    db.Pets.Remove(rmpet);
                     db.SaveChanges();       // Execute the update
 
                     MessageBox.Show("Deleted Successfully");
@@ -96,6 +99,25 @@ namespace Hubitat.Repositories
                 MessageBox.Show(ex.Message);
             }
             return retValue;
+        }
+
+        public ErrorCode EditPet(String pID, String name, String species, String breed, int age, String gender, String status, decimal price, byte[] img)
+        {
+            try
+            {                
+                using (db = new hubitatDBEntities())
+                {
+                    //Call the create stored procedure
+                    db.sp_PetUpdate(pID, name, species, breed, age, gender, status, price, img);
+                    MessageBox.Show("Updated Successfully");
+                    return ErrorCode.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:", ex.Message);
+                return ErrorCode.Error;
+            }
         }
 
 

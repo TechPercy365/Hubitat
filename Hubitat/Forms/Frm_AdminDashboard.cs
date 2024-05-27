@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hubitat.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace Hubitat.Forms
         public Frm_AdminDashboard()
         {
             InitializeComponent();
+            LoadWelcomeMessage();
+        }
+
+        private void LoadWelcomeMessage()
+        {
+            // Access the logged-in user's details
+            var loggedInUser = UserLogged.GetInstance().User;
+
+            if (loggedInUser != null)
+            {
+                // Set the welcome message with the username
+                txtWelcome.Text = $"Welcome, {loggedInUser.userName}";
+            }
+            else
+            {
+                txtWelcome.Text = "Welcome, Employee";
+            }
         }
 
         private void x_Exit_Click(object sender, EventArgs e)
