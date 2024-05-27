@@ -42,7 +42,13 @@ namespace Hubitat.Forms
 
         private void btn_buyPet_Click(object sender, EventArgs e)
         {
-
+            var loggedInUser = UserLogged.GetInstance().User;
+            if (loggedInUser != null)
+            {
+                Frm_C_BuyPets buyPetForm = new Frm_C_BuyPets(loggedInUser.userID, loggedInUser.firstName, loggedInUser.lastName, loggedInUser.email);
+                buyPetForm.Show();
+                this.Hide();
+            }
         }
     }
 }
