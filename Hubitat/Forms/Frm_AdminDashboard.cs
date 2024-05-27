@@ -51,5 +51,11 @@ namespace Hubitat.Forms
             new Frm_ManagePets().Show();
             this.Hide();
         }
+
+        private void pic_Reports_Click(object sender, EventArgs e)
+        {
+            new Frm_Reports().Show();
+            this.Hide();
+        }
     }
 }

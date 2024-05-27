@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,16 +17,20 @@ namespace Hubitat.Forms
     {
         hubitatDBEntities db;
         PetRepository petRepo;
+        TransactionRepository tranRepo;
         private string fname;
         private string lname;
         private string email;
         private string uID;
+        private string tempPetID;
+        private string price;
 
         public Frm_C_BuyPets(string uID,string fname, string lname, string email)
         {
             InitializeComponent();
             db = new hubitatDBEntities();
             petRepo = new PetRepository();
+            tranRepo = new TransactionRepository();
             this.fname = fname;
             this.lname = lname;
             this.email = email;
@@ -54,17 +59,38 @@ namespace Hubitat.Forms
         {
             if(String.IsNullOrEmpty(txt_Amount.Text))
             {
-                lbl_Error.Text = "Please Enter an Amount you would like to Pay in the Pet you Choosed...";
+                lbl_Error.Text = "Please Enter the Amount you will Pay first";
                 return;
             }
 
+            decimal totalPay = decimal.Parse(price);
+            decimal amt = decimal.Parse(txt_Amount.Text);
+            decimal change = (amt - totalPay);
+            string stat = "SOLD";
+            tranRepo.BuyPet(tempPetID, totalPay, amt, change);
+            petRepo.UpdatePetStatus(tempPetID, stat);
+            loadPetBuy();
+            ClearInputs();
+            
+
+        }
+
+        public void ClearInputs()
+        {
+            txt_Amount.Clear();
+            pic_petImg.Image = null;
         }
 
         public void loadPetBuy()
-        {
+        {            
+
             dgv_butPet.DataSource = db.vw_BuyPet.ToList();
+
             lbl_CusName.Text = $"Name: {fname} {lname} ";
-            lbl_Email.Text = $"Email {email} ";           
+            lbl_Email.Text = $"Email {email} ";
+
+            var pets = db.vw_BuyPet.ToList();                       
+
         }
 
         private void dgv_butPet_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,37 +111,45 @@ namespace Hubitat.Forms
                 var pet = dbContext.Pets.FirstOrDefault(p => p.petID == petId);
                 if (pet != null)
                 {
+                    price = pet.petPrice.ToString();
+                    tempPetID = pet.petID;
                     // Display pet info in the transaction panel
                     lbl_PetName.Text = "Pet Name: " + pet.petName;
                     lbl_Species.Text = "Species: " + pet.petSpecies;
                     lbl_Breed.Text = "Breed: " + pet.petBreed;
-                    lbl_Price.Text = "Price: " + pet.petPrice.ToString();                    
-                                       
+                    lbl_Price.Text = "Price: " + price;
+
+                    
+                    if (pet.petImage != null && pet.petImage.Length > 0)
+                    {
+                        // Convert byte array to image
+                        using (MemoryStream ms = new MemoryStream(pet.petImage))
+                        {
+                            pic_petImg.Image = Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        // If image data is null, clear the picture box
+                        pic_petImg.Image = null;
+                    }
+
                 }
             }
         }
 
-        private void dgv_butPet_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void txt_Amount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this.dgv_butPet.Columns[e.ColumnIndex].Name == "Pet_Image" && e.Value != null)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                byte[] imageData = (byte[])e.Value;
-                using (var ms = new System.IO.MemoryStream(imageData))
-                {
-                    Image image = Image.FromStream(ms);
-                    e.Value = ResizeImage(image, 150, 150);
-                }
+                e.Handled = true;
+            }
+
+            // Allow only one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
-        private Image ResizeImage(Image img, int width, int height)
-        {
-            Bitmap b = new Bitmap(width, height);
-            using (Graphics g = Graphics.FromImage(b))
-            {
-                g.DrawImage(img, 0, 0, width, height);
-            }
-            return b;
-        }        
-
     }
 }

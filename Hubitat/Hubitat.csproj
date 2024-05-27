@@ -103,6 +103,12 @@
     <Compile Include="Forms\Frm_C_BuyPets.Designer.cs">
       <DependentUpon>Frm_C_BuyPets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Frm_Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Reports.Designer.cs">
+      <DependentUpon>Frm_Reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\DBHubitatModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,6 +158,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\PetRepository.cs" />
     <Compile Include="Repositories\Error.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UserLogged.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <EmbeddedResource Include="Forms\Frm_AdminDashboard.resx">
@@ -177,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_C_BuyPets.resx">
       <DependentUpon>Frm_C_BuyPets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Reports.resx">
+      <DependentUpon>Frm_Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

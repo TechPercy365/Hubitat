@@ -38,6 +38,9 @@ CREATE TABLE [Transactions] (
 	transDate DATETIME 
 )
 
+SELECT * FROM [Transactions]
+DELETE FROM [Transactions] WHERE transactionID = 'T-001'
+
 ---<<<<<<<<<<<   VIEW METHODS   >>>>>>>>>>>>---
 
 CREATE VIEW vw_Users AS
@@ -81,10 +84,10 @@ FROM [Pets]
 WHERE petStatus = 'SOLD'
 
 CREATE VIEW vw_BuyPet AS
-SELECT petID as 'Pet ID', petImage as 'Pet Image'
+SELECT petID as 'Pet ID', petSpecies as 'Pet Species', petBreed as 'Pet Breed'
 FROM [Pets]
 WHERE petStatus = 'AVAILABLE'
-
+DROP VIEW vw_BuyPet
 
 ---<<<<<<<<<<<   STORED PROCEDURES   >>>>>>>>>>>>---
 CREATE PROCEDURE sp_UserUpdate

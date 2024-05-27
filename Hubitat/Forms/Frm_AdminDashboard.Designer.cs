@@ -36,7 +36,7 @@
             this.pic_Logout = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pic_Transactions = new System.Windows.Forms.PictureBox();
+            this.pic_Reports = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_Profile = new System.Windows.Forms.Label();
             this.pic_Profile = new System.Windows.Forms.PictureBox();
@@ -56,7 +56,7 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Transactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Reports)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Profile)).BeginInit();
             this.panel4.SuspendLayout();
@@ -127,7 +127,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.pic_Transactions);
+            this.panel6.Controls.Add(this.pic_Reports);
             this.panel6.Location = new System.Drawing.Point(0, 231);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(76, 79);
@@ -143,16 +143,17 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Reports";
             // 
-            // pic_Transactions
+            // pic_Reports
             // 
-            this.pic_Transactions.ErrorImage = null;
-            this.pic_Transactions.Image = ((System.Drawing.Image)(resources.GetObject("pic_Transactions.Image")));
-            this.pic_Transactions.Location = new System.Drawing.Point(9, 6);
-            this.pic_Transactions.Name = "pic_Transactions";
-            this.pic_Transactions.Size = new System.Drawing.Size(58, 57);
-            this.pic_Transactions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Transactions.TabIndex = 0;
-            this.pic_Transactions.TabStop = false;
+            this.pic_Reports.ErrorImage = null;
+            this.pic_Reports.Image = ((System.Drawing.Image)(resources.GetObject("pic_Reports.Image")));
+            this.pic_Reports.Location = new System.Drawing.Point(9, 6);
+            this.pic_Reports.Name = "pic_Reports";
+            this.pic_Reports.Size = new System.Drawing.Size(58, 57);
+            this.pic_Reports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Reports.TabIndex = 0;
+            this.pic_Reports.TabStop = false;
+            this.pic_Reports.Click += new System.EventHandler(this.pic_Reports_Click);
             // 
             // panel5
             // 
@@ -336,7 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logout)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Transactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Reports)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Profile)).EndInit();
@@ -363,7 +364,7 @@
         private System.Windows.Forms.PictureBox pic_Logout;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pic_Transactions;
+        private System.Windows.Forms.PictureBox pic_Reports;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label btn_Profile;
         private System.Windows.Forms.PictureBox pic_Profile;

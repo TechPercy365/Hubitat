@@ -40,6 +40,8 @@
             this.btn_Back = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_Error = new System.Windows.Forms.Label();
+            this.lbl_Breed = new System.Windows.Forms.Label();
             this.lbl_Amount = new System.Windows.Forms.Label();
             this.btn_Done = new System.Windows.Forms.Button();
             this.lbl_Price = new System.Windows.Forms.Label();
@@ -51,14 +53,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_butPet = new System.Windows.Forms.DataGridView();
-            this.lbl_Breed = new System.Windows.Forms.Label();
-            this.lbl_Error = new System.Windows.Forms.Label();
+            this.pic_petImg = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_petImg)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -181,6 +183,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.pic_petImg);
             this.panel3.Controls.Add(this.lbl_Error);
             this.panel3.Controls.Add(this.lbl_Breed);
             this.panel3.Controls.Add(this.lbl_Amount);
@@ -194,8 +197,28 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(13, 13);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(344, 241);
+            this.panel3.Size = new System.Drawing.Size(427, 241);
             this.panel3.TabIndex = 17;
+            // 
+            // lbl_Error
+            // 
+            this.lbl_Error.AutoSize = true;
+            this.lbl_Error.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Error.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Error.Location = new System.Drawing.Point(6, 209);
+            this.lbl_Error.Name = "lbl_Error";
+            this.lbl_Error.Size = new System.Drawing.Size(0, 14);
+            this.lbl_Error.TabIndex = 24;
+            // 
+            // lbl_Breed
+            // 
+            this.lbl_Breed.AutoSize = true;
+            this.lbl_Breed.Font = new System.Drawing.Font("Georgia", 9.75F);
+            this.lbl_Breed.Location = new System.Drawing.Point(3, 134);
+            this.lbl_Breed.Name = "lbl_Breed";
+            this.lbl_Breed.Size = new System.Drawing.Size(50, 16);
+            this.lbl_Breed.TabIndex = 23;
+            this.lbl_Breed.Text = "Breed: ";
             // 
             // lbl_Amount
             // 
@@ -215,7 +238,7 @@
             this.btn_Done.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Done.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Done.ForeColor = System.Drawing.Color.Black;
-            this.btn_Done.Location = new System.Drawing.Point(248, 209);
+            this.btn_Done.Location = new System.Drawing.Point(331, 209);
             this.btn_Done.Name = "btn_Done";
             this.btn_Done.Size = new System.Drawing.Size(93, 29);
             this.btn_Done.TabIndex = 15;
@@ -241,6 +264,7 @@
             this.txt_Amount.Name = "txt_Amount";
             this.txt_Amount.Size = new System.Drawing.Size(74, 20);
             this.txt_Amount.TabIndex = 5;
+            this.txt_Amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Amount_KeyPress);
             // 
             // lbl_Species
             // 
@@ -306,7 +330,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(376, 13);
+            this.label1.Location = new System.Drawing.Point(458, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(211, 16);
             this.label1.TabIndex = 3;
@@ -316,32 +340,21 @@
             // 
             this.dgv_butPet.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgv_butPet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_butPet.Location = new System.Drawing.Point(379, 32);
+            this.dgv_butPet.Location = new System.Drawing.Point(461, 32);
             this.dgv_butPet.Name = "dgv_butPet";
-            this.dgv_butPet.Size = new System.Drawing.Size(342, 169);
+            this.dgv_butPet.Size = new System.Drawing.Size(260, 131);
             this.dgv_butPet.TabIndex = 4;
             this.dgv_butPet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_butPet_CellClick);
-            this.dgv_butPet.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_butPet_CellFormatting);
             // 
-            // lbl_Breed
+            // pic_petImg
             // 
-            this.lbl_Breed.AutoSize = true;
-            this.lbl_Breed.Font = new System.Drawing.Font("Georgia", 9.75F);
-            this.lbl_Breed.Location = new System.Drawing.Point(3, 134);
-            this.lbl_Breed.Name = "lbl_Breed";
-            this.lbl_Breed.Size = new System.Drawing.Size(50, 16);
-            this.lbl_Breed.TabIndex = 23;
-            this.lbl_Breed.Text = "Breed: ";
-            // 
-            // lbl_Error
-            // 
-            this.lbl_Error.AutoSize = true;
-            this.lbl_Error.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Error.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Error.Location = new System.Drawing.Point(6, 209);
-            this.lbl_Error.Name = "lbl_Error";
-            this.lbl_Error.Size = new System.Drawing.Size(0, 14);
-            this.lbl_Error.TabIndex = 24;
+            this.pic_petImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.pic_petImg.Location = new System.Drawing.Point(298, 34);
+            this.pic_petImg.Name = "pic_petImg";
+            this.pic_petImg.Size = new System.Drawing.Size(115, 100);
+            this.pic_petImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_petImg.TabIndex = 25;
+            this.pic_petImg.TabStop = false;
             // 
             // Frm_C_BuyPets
             // 
@@ -370,6 +383,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_petImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,5 +415,6 @@
         private System.Windows.Forms.Label lbl_Amount;
         private System.Windows.Forms.Label lbl_Breed;
         private System.Windows.Forms.Label lbl_Error;
+        private System.Windows.Forms.PictureBox pic_petImg;
     }
 }

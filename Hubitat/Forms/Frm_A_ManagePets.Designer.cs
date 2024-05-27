@@ -314,6 +314,7 @@
             this.txt_Price.Name = "txt_Price";
             this.txt_Price.Size = new System.Drawing.Size(67, 23);
             this.txt_Price.TabIndex = 5;
+            this.txt_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Price_KeyPress);
             // 
             // txt_Age
             // 
@@ -322,6 +323,7 @@
             this.txt_Age.Name = "txt_Age";
             this.txt_Age.Size = new System.Drawing.Size(43, 23);
             this.txt_Age.TabIndex = 5;
+            this.txt_Age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Age_KeyPress);
             // 
             // txt_Breed
             // 

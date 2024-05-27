@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e51c60bf3334fe7966a95dc44fa68fc" Name="Diagram1">
+      <Diagram DiagramId="3e51c60bf3334fe7966a95dc44fa68fc" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="hubitatDBModel.Pets" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="hubitatDBModel.Transactions" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="hubitatDBModel.Users" Width="1.5" PointX="4.75" PointY="0.75" />

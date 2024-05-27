@@ -15,6 +15,7 @@ namespace Hubitat.Model
     public partial class vw_BuyPet
     {
         public string Pet_ID { get; set; }
-        public byte[] Pet_Image { get; set; }
+        public string Pet_Species { get; set; }
+        public string Pet_Breed { get; set; }
     }
 }
