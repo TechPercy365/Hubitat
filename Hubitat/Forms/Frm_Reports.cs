@@ -33,5 +33,10 @@ namespace Hubitat.Forms
             new Frm_AdminDashboard().Show();
             this.Hide();
         }
+
+        private void Frm_Reports_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
