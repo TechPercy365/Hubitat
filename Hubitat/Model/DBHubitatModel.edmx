@@ -160,6 +160,34 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_PetSold' does not have a primary 
           <Property Name="Pet Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'hubitatDB.dbo.vw_TransactionReports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TransactionReports">
+          <Key>
+            <PropertyRef Name="Transaction ID" />
+            <PropertyRef Name="User ID" />
+            <PropertyRef Name="User Name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Pet ID" />
+            <PropertyRef Name="Pet Species" />
+            <PropertyRef Name="Pet Breed" />
+            <PropertyRef Name="Total Payment" />
+            <PropertyRef Name="Amount Pay" />
+            <PropertyRef Name="Change Amount" />
+          </Key>
+          <Property Name="Transaction ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="User ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="User Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pet ID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Pet Name" Type="varchar" MaxLength="100" />
+          <Property Name="Pet Species" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pet Breed" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Total Payment" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Amount Pay" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Change Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Transaction Date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_Users">
           <Key>
@@ -272,6 +300,22 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
     [vw_PetSold].[Pet Price] AS [Pet Price]
     FROM [dbo].[vw_PetSold] AS [vw_PetSold]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_TransactionReports" EntityType="Self.vw_TransactionReports" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TransactionReports].[Transaction ID] AS [Transaction ID], 
+    [vw_TransactionReports].[User ID] AS [User ID], 
+    [vw_TransactionReports].[User Name] AS [User Name], 
+    [vw_TransactionReports].[Email] AS [Email], 
+    [vw_TransactionReports].[Pet ID] AS [Pet ID], 
+    [vw_TransactionReports].[Pet Name] AS [Pet Name], 
+    [vw_TransactionReports].[Pet Species] AS [Pet Species], 
+    [vw_TransactionReports].[Pet Breed] AS [Pet Breed], 
+    [vw_TransactionReports].[Total Payment] AS [Total Payment], 
+    [vw_TransactionReports].[Amount Pay] AS [Amount Pay], 
+    [vw_TransactionReports].[Change Amount] AS [Change Amount], 
+    [vw_TransactionReports].[Transaction Date] AS [Transaction Date]
+    FROM [dbo].[vw_TransactionReports] AS [vw_TransactionReports]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_Users" EntityType="Self.vw_Users" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_Users].[User ID] AS [User ID], 
@@ -320,6 +364,7 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
           <EntitySet Name="vw_Employees" EntityType="hubitatDBModel.vw_Employees" />
           <EntitySet Name="vw_PetAvailable" EntityType="hubitatDBModel.vw_PetAvailable" />
           <EntitySet Name="vw_PetSold" EntityType="hubitatDBModel.vw_PetSold" />
+          <EntitySet Name="vw_TransactionReports" EntityType="hubitatDBModel.vw_TransactionReports" />
           <EntitySet Name="vw_Users" EntityType="hubitatDBModel.vw_Users" />
           </EntityContainer>
         <EntityType Name="Pets">
@@ -463,6 +508,32 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
           <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Pet_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Pet_Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="vw_TransactionReports">
+          <Key>
+            <PropertyRef Name="Transaction_ID" />
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="User_Name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Pet_ID" />
+            <PropertyRef Name="Pet_Species" />
+            <PropertyRef Name="Pet_Breed" />
+            <PropertyRef Name="Total_Payment" />
+            <PropertyRef Name="Amount_Pay" />
+            <PropertyRef Name="Change_Amount" />
+          </Key>
+          <Property Name="Transaction_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="User_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_ID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Species" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pet_Breed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Payment" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Amount_Pay" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Change_Amount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Transaction_Date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="vw_Users">
           <Key>
@@ -610,6 +681,24 @@ warning 6002: The table/view 'hubitatDB.dbo.vw_Users' does not have a primary ke
                 <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
                 <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
                 <ScalarProperty Name="Pet_Image" ColumnName="Pet Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TransactionReports">
+            <EntityTypeMapping TypeName="hubitatDBModel.vw_TransactionReports">
+              <MappingFragment StoreEntitySet="vw_TransactionReports">
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction Date" />
+                <ScalarProperty Name="Change_Amount" ColumnName="Change Amount" />
+                <ScalarProperty Name="Amount_Pay" ColumnName="Amount Pay" />
+                <ScalarProperty Name="Total_Payment" ColumnName="Total Payment" />
+                <ScalarProperty Name="Pet_Breed" ColumnName="Pet Breed" />
+                <ScalarProperty Name="Pet_Species" ColumnName="Pet Species" />
+                <ScalarProperty Name="Pet_Name" ColumnName="Pet Name" />
+                <ScalarProperty Name="Pet_ID" ColumnName="Pet ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_Name" ColumnName="User Name" />
+                <ScalarProperty Name="User_ID" ColumnName="User ID" />
+                <ScalarProperty Name="Transaction_ID" ColumnName="Transaction ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

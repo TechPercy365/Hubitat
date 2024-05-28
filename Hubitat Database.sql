@@ -43,6 +43,27 @@ DELETE FROM [Transactions] WHERE transactionID = 'T-001'
 
 ---<<<<<<<<<<<   VIEW METHODS   >>>>>>>>>>>>---
 
+CREATE VIEW vw_TransactionReports AS
+SELECT
+    t.transactionID as 'Transaction ID',
+    u.userID as 'User ID',
+    u.userName as 'User Name',
+    u.email as 'Email',
+    p.petID as 'Pet ID',
+    p.petName as 'Pet Name',
+    p.petSpecies as 'Pet Species',
+    p.petBreed as 'Pet Breed',
+    t.totalPayment as 'Total Payment',
+    t.amountCustPay as 'Amount Pay',
+    t.payChange as 'Change Amount',
+    t.transDate as 'Transaction Date'
+FROM
+    Transactions t
+JOIN
+    Users u ON t.userID = u.userID
+JOIN
+    Pets p ON t.petID = p.petID;
+
 CREATE VIEW vw_Users AS
 SELECT us.userID AS 'User ID', us.userName as 'Username', us.userType as 'Role/Type',
 us.firstName as 'First Name', us.lastName as 'Last Name', 

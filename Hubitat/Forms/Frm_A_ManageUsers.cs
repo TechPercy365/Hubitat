@@ -70,9 +70,21 @@ namespace Hubitat.Forms
             string utype = cmb_Role.SelectedItem.ToString();
             userRepo.RegisterUser(txt_Uname.Text, txt_Pass.Text, utype, txt_Fname.Text, txt_Lname.Text, txt_Email.Text, txt_Phone.Text);
             loadUsers();
-            
+            ClearInputs();
 
         }
+        public void ClearInputs()
+        {
+            txt_Fname.Clear();
+            txt_Lname.Clear();
+            txt_Email.Clear();
+            txt_Uname.Clear();
+            txt_Pass.Clear();
+            txt_Phone.Clear();
+            cmb_Role.Text = "";
+
+        }
+
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
             SearchUser();
@@ -109,6 +121,7 @@ namespace Hubitat.Forms
                     userRepo.RemoveUser(deleteuser);
                 
                 loadUsers();
+                ClearInputs();
                 }
             }
                             

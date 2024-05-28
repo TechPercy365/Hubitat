@@ -85,12 +85,6 @@
     <Compile Include="Forms\Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_A_ManagePets.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Frm_A_ManagePets.Designer.cs">
-      <DependentUpon>Frm_A_ManagePets.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Frm_A_ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,11 +163,19 @@
     <Compile Include="Model\vw_PetSold.cs">
       <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\vw_TransactionReports.cs">
+      <DependentUpon>DBHubitatModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\vw_Users.cs">
       <DependentUpon>DBHubitatModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\PetRepository.cs" />
     <Compile Include="Repositories\Error.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
@@ -185,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_A_ManagePets.resx">
-      <DependentUpon>Frm_A_ManagePets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_A_ManageUsers.resx">
       <DependentUpon>Frm_A_ManageUsers.cs</DependentUpon>
@@ -235,6 +234,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReportDataSet.xsc">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportDataSet.xss">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

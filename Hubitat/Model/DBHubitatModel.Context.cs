@@ -36,6 +36,7 @@ namespace Hubitat.Model
         public virtual DbSet<vw_Employees> vw_Employees { get; set; }
         public virtual DbSet<vw_PetAvailable> vw_PetAvailable { get; set; }
         public virtual DbSet<vw_PetSold> vw_PetSold { get; set; }
+        public virtual DbSet<vw_TransactionReports> vw_TransactionReports { get; set; }
         public virtual DbSet<vw_Users> vw_Users { get; set; }
     
         public virtual int sp_PetUpdate(string petID, string petName, string petSpecies, string petBreed, Nullable<int> petAge, string petGender, string petStatus, Nullable<decimal> petPrice, byte[] petImage)

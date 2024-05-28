@@ -50,5 +50,15 @@ namespace Hubitat.Forms
                 this.Hide();
             }
         }
+
+        private void pic_Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Confirm: Are you sure you want to log-out?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (confirm == DialogResult.OK)
+            {
+                new Frm_Login().Show();
+                this.Hide();
+            }
+        }
     }
 }

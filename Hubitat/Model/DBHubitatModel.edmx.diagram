@@ -14,7 +14,8 @@
         <EntityTypeShape EntityType="hubitatDBModel.vw_Employees" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="hubitatDBModel.vw_PetAvailable" Width="1.5" PointX="6.75" PointY="4.75" />
         <EntityTypeShape EntityType="hubitatDBModel.vw_PetSold" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="hubitatDBModel.vw_Users" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="hubitatDBModel.vw_TransactionReports" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="hubitatDBModel.vw_Users" Width="1.5" PointX="2.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -40,6 +40,7 @@
             this.btn_Back = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pic_petImg = new System.Windows.Forms.PictureBox();
             this.lbl_Error = new System.Windows.Forms.Label();
             this.lbl_Breed = new System.Windows.Forms.Label();
             this.lbl_Amount = new System.Windows.Forms.Label();
@@ -53,14 +54,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_butPet = new System.Windows.Forms.DataGridView();
-            this.pic_petImg = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_petImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -199,6 +199,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(427, 241);
             this.panel3.TabIndex = 17;
+            // 
+            // pic_petImg
+            // 
+            this.pic_petImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
+            this.pic_petImg.Location = new System.Drawing.Point(298, 34);
+            this.pic_petImg.Name = "pic_petImg";
+            this.pic_petImg.Size = new System.Drawing.Size(115, 100);
+            this.pic_petImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_petImg.TabIndex = 25;
+            this.pic_petImg.TabStop = false;
             // 
             // lbl_Error
             // 
@@ -346,16 +356,6 @@
             this.dgv_butPet.TabIndex = 4;
             this.dgv_butPet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_butPet_CellClick);
             // 
-            // pic_petImg
-            // 
-            this.pic_petImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(228)))), ((int)(((byte)(232)))));
-            this.pic_petImg.Location = new System.Drawing.Point(298, 34);
-            this.pic_petImg.Name = "pic_petImg";
-            this.pic_petImg.Size = new System.Drawing.Size(115, 100);
-            this.pic_petImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_petImg.TabIndex = 25;
-            this.pic_petImg.TabStop = false;
-            // 
             // Frm_C_BuyPets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +374,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_C_BuyPets";
             this.Text = "Frm_T_RentApartment";
+            this.Load += new System.EventHandler(this.Frm_C_BuyPets_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -382,8 +383,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_petImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_butPet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -154,6 +154,7 @@
             this.pic_Logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Logout.TabIndex = 0;
             this.pic_Logout.TabStop = false;
+            this.pic_Logout.Click += new System.EventHandler(this.pic_Logout_Click);
             // 
             // panel6
             // 

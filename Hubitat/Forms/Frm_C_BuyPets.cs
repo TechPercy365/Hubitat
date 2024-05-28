@@ -151,5 +151,10 @@ namespace Hubitat.Forms
                 e.Handled = true;
             }
         }
+
+        private void Frm_C_BuyPets_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
